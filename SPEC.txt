@@ -1,0 +1,22 @@
+Cabra
+
+usuarios:
+  nome (Char)
+  hash (Char(255))  
+ 
+contas: tipos = ["Bens", "Despesas", "Receitas", "Crédito", "Ajustes"]
+  dono (FK) usuario
+  tipo (Char) Um de "Bens", "Despesas", "Receitas", "Crédito", ou "Ajustes"
+  sinal (Integer) 1 ou -1. "Bens" e "Despesas" são 1, o resto é -1
+  nome (Char)
+  orcamento (Integer)
+
+  
+transacoes:
+  dono (FK) usuario
+  data (Date)
+  nome (Char) descrição
+  valor (Integer) em centavos
+  dr (FK) conta de débito 
+  cr (FK) conta de crédito
+  
