@@ -4,6 +4,7 @@ usuarios:
   nome (Char)
   hash (Char(255))  
  
+
 contas: tipos = ["Bens", "Despesas", "Receitas", "Crédito", "Ajustes"]
   dono (FK) usuario
   tipo (Char) Um de "Bens", "Despesas", "Receitas", "Crédito", ou "Ajustes"
@@ -20,3 +21,31 @@ transacoes:
   dr (FK) conta de débito 
   cr (FK) conta de crédito
   
+
+Páginas:
+
+index.php: login.php ou redirecionar a sumario.php se houver sessão
+cadastro.php: nome de usuario, senha
+editar_cadastro.php: trocar nome de usuario e senha
+superuser.php: redefinir senha de algum usuario (usando superuser_senha)
+
+login.php: semelhante a cadastro.php
+logout.php: redirecionar a index.php
+
+sumario.php: saldo de bens, credito, e ajustes (todas transacoes) e despesas e receitas deste mes
+
+tipo_de_conta.php?nome=N: N é um de "bens", "despesas", "receitas", "credito", ou "ajustes". Saldo de todas as contas do tipo selecionado. Exibir links caso nome não for especificado.
+
+conta.php?id=123&a=2018-01-01&b=2018-07-15: extrato de transacoes entre datas a e b (opcionais)
+
+nova_conta.php: tipo (select), nome, e orcamento (0 se deixar em branco)
+editar_conta.php?id=123: semelhante a nova_conta.php
+confirmar_excluir_conta.php: Sim/Não
+excluir_conta.php: excluir todas as transacoes que a tiver como dr ou cr
+
+transacao.php?id=123: detalhes de uma transacao
+
+nova_transacao.php?dr=M&cr=N: M e N são um dos "tipos de conta". data, nome, valor, dr, cr
+editar_transacao.php?id=123&dr=M&cr=N: editar transacao
+confirmar_excluir_transacao.php: Sim/Não
+excluir_transacao.php: excluir somente a transacao
