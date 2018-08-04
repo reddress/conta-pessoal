@@ -20,7 +20,7 @@ ob_start();
                 <input class="form-control mr-sm-2" type="search" placeholder="Busca" aria-label="Busca">
             </form>
 
-            <a class="navbar-brand" href="index.php">feijoeiro</a>
+            <a class="navbar-brand" href="index.php">Cabra</a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -30,7 +30,7 @@ ob_start();
                     </li>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="transactions:list">Últimas transações</a>
+                        <a class="nav-link" href="#">Últimas transações</a>
                     </li>
                     
                     <li class="nav-item dropdown">
@@ -38,11 +38,11 @@ ob_start();
                             Contas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownContas">
-                            <a class="dropdown-item" href="accounts:categoria-detail" "Bens">Bens</a>
-                            <a class="dropdown-item" href="accounts:categoria-detail" "Despesas">Despesas</a>
-                            <a class="dropdown-item" href="accounts:categoria-detail" "Receitas">Receitas</a>
-                            <a class="dropdown-item" href="accounts:categoria-detail" "Credito">Crédito</a>
-                            <a class="dropdown-item" href="accounts:categoria-detail" "Ajustes">Ajustes</a>
+                            <a class="dropdown-item" href="#" "Bens">Bens</a>
+                            <a class="dropdown-item" href="#" "Despesas">Despesas</a>
+                            <a class="dropdown-item" href="#" "Receitas">Receitas</a>
+                            <a class="dropdown-item" href="#" "Credito">Crédito</a>
+                            <a class="dropdown-item" href="#" "Ajustes">Ajustes</a>
                         </div>
                     </li>
 
@@ -64,15 +64,15 @@ ob_start();
                             Despesas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownDespesas">
-                            <a class="dropdown-item" href="transactions:createDebitCredit">Pagamento à vista</a>
-                            <a class="dropdown-item" href="transactions:createDebitCredit" "pagamento_a_credito" "Despesas" "Credito">Pagamento à crédito</a>
-                            <a class="dropdown-item" href="transactions:createDebitCredit" "outra_despesa" "Despesas" "Todos">Outra despesa</a>
+                            <a class="dropdown-item" href="#">Pagamento à vista</a>
+                            <a class="dropdown-item" href="#" "pagamento_a_credito" "Despesas" "Credito">Pagamento à crédito</a>
+                            <a class="dropdown-item" href="#" "outra_despesa" "Despesas" "Todos">Outra despesa</a>
                         </div>
                     </li>
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="transactions:createDebitCredit" "receita" "Bens" "Receitas">Receita</a>
+                        <a class="nav-link" href="#" "receita" "Bens" "Receitas">Receita</a>
                     </li>
 
 
@@ -81,8 +81,8 @@ ob_start();
                             Cartões
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownCartoes">
-                            <a class="dropdown-item" href="transactions:createDebitCredit" "pagamento_de_fatura" "Credito" "Bens">Pagamento de fatura</a>
-                            <a class="dropdown-item" href="transactions:createDebitCredit" "emprestimo_de_cartao" "Bens" "Credito">Empréstimo de cartão</a>
+                            <a class="dropdown-item" href="#" "pagamento_de_fatura" "Credito" "Bens">Pagamento de fatura</a>
+                            <a class="dropdown-item" href="#" "emprestimo_de_cartao" "Bens" "Credito">Empréstimo de cartão</a>
                         </div>
                     </li>
 
@@ -92,8 +92,8 @@ ob_start();
                             Transferências
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownTransferencias">
-                            <a class="dropdown-item" href="transactions:createDebitCredit" "transferencia_entre_bens" "Bens" "Bens">Transferência entre bens</a>
-                            <a class="dropdown-item" href="transactions:createDebitCredit" "transferencia_entre_cartoes" "Credito" "Credito">Transferência entre cartões</a>
+                            <a class="dropdown-item" href="#" "transferencia_entre_bens" "Bens" "Bens">Transferência entre bens</a>
+                            <a class="dropdown-item" href="#" "transferencia_entre_cartoes" "Credito" "Credito">Transferência entre cartões</a>
                         </div>
                     </li>
 
@@ -103,16 +103,29 @@ ob_start();
                             Reembolsos
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownReembolsos">
-                            <a class="dropdown-item" href="transactions:createDebitCredit">Reembolso à vista</a>
-                            <a class="dropdown-item" href="transactions:createDebitCredit">>Reembolso no cartão</a>
+                            <a class="dropdown-item" href="#">Reembolso à vista</a>
+                            <a class="dropdown-item" href="#">Reembolso no cartão</a>
                         </div>
                     </li>
+
+                    <?php
+                    if (isset($_SESSION['uid'])) {
+                    ?>
+                        
+                    <li class="nav-item active">
+                        <a class="nav-link" href="nova_senha.php">Redefinir senha</a>
+                    </li>
+                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="fazer_logout.php">Logout</a>
+                    </li>
+                    
+                    <?php
+                    }
+                    ?>
 
                 </ul>
             </div>
         </nav>
 
         <div class="container">
-            
-            <h1><a href="index.php">HOME</a></h1>
-            <h1><a href="fazer_logout.php">LOGOUT</a></h1>

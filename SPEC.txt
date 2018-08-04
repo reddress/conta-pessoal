@@ -24,25 +24,14 @@ transacoes:
 
 Páginas:
 
-[  ] index.php: login.php ou redirecionar a sumario.php se houver sessão
-
-[ok] cadastro.php: nome de usuario, senha
-[ok] criar_cadastro.php: exec
-[  ] editar_cadastro.php: trocar nome de usuario e senha
-[  ] superuser.php: redefinir senha de algum usuario (usando superuser_senha)
-
-[--] login.php: => index.php: semelhante a cadastro.php
-[ok] fazer_login.php: exec
-[ok] logout.php: redirecionar a index.php
-
-[--] sumario.php: => index.php: saldo de bens, credito, e ajustes (todas transacoes) e despesas e receitas deste mes
+[  ] index.php: login.php ou exibir sumario se houver cookie ou sessao
 
 [  ] tipo_de_conta.php?nome=N: N é um de "bens", "despesas", "receitas", "credito", ou "ajustes".
        Saldo de todas as contas do tipo selecionado. Exibir links caso nome não for especificado.
 
 [  ] conta.php?id=123&a=2018-01-01&b=2018-07-15: extrato de transacoes entre datas a e b (opcionais)
 
-[  ] nova_conta.php: tipo (select), nome, e orcamento (0 se deixar em branco)
+[  ] nova_conta.php?tipo=N: N é um dos "tipos de conta", nome, e orcamento (0 se deixar em branco)
 [  ] criar_conta.php: exec
 [  ] editar_conta.php?id=123: semelhante a nova_conta.php
 [  ] confirmar_excluir_conta.php: Sim/Não
@@ -55,3 +44,21 @@ Páginas:
 [  ] editar_transacao.php?id=123&dr=M&cr=N: editar transacao
 [  ] confirmar_excluir_transacao.php: Sim/Não
 [  ] excluir_transacao.php: excluir somente a transacao
+
+
+Concluídas:
+
+[ok] cadastro.php: nome de usuario, senha
+[ok] criar_cadastro.php: exec
+
+[ok] nova_senha.php: trocar nome de usuario e senha
+[ok] alterar_senha.php: exec
+
+[ok] su.php: (superuser) redefinir senha de algum usuario (usando senha_superuser_default)
+[ok] redefinir_por_superuser.php: exec
+
+[--] login.php: => index.php: semelhante a cadastro.php
+[ok] fazer_login.php: exec
+[ok] logout.php: redirecionar a index.php
+
+[--] sumario.php: => index.php: saldo de bens, credito, e ajustes (todas transacoes) e despesas e receitas deste mes

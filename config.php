@@ -7,6 +7,6 @@ $dbname = "pedidos_history";
 $dbuser = "root";
 $dbpassword = "";
 
-$superuser_senha = "secret";
+$senha_superuser_default = "secret";
 
 ?>

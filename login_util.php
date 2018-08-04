@@ -16,10 +16,10 @@ function save_cookie($dbh, $uid) {
 }
 
 function delete_cookie($dbh, $rand) {
+    session_unset();
     $delete_sql = $dbh->prepare("delete from autologin where rand = :rand");
     $delete_sql->execute([":rand" => $rand]);
     setcookie("autologin", "", time() - 3600);
-    session_unset();
 }
 
 function read_cookie($dbh) {
