@@ -1,19 +1,24 @@
 <?php
 require_once("dbhost.php");
 
-try {
-    $dbname = "cabra";
-    
-    // Create tables
-    $dbh->exec("use $dbname");
+$debug = false;
 
-    $dbh->exec("drop table autologin");
-    $dbh->exec("drop table transacoes");
-    $dbh->exec("drop table contas");
-    $dbh->exec("drop table usuarios");
+try {
+    if ($debug) {
+        $dbname = "cabra";
     
-    echo("Tabelas excluídas");
-    echo('<br><br><a href="install.php">Re-instalar</a>');
+        $dbh->exec("use $dbname");
+
+        $dbh->exec("drop table autologin");
+        $dbh->exec("drop table transacoes");
+        $dbh->exec("drop table contas");
+        $dbh->exec("drop table usuarios");
+    
+        echo("Tabelas excluídas");
+        echo('<br><br><a href="install.php">Re-instalar</a>');
+    } else {
+        echo('Entre no modo Debug editando o código-fonte para excluir as tabelas.');
+    }
 } catch (PDOException $e) {
     die($e->getMessage());
 }
