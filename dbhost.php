@@ -1,7 +1,7 @@
 <?php
-require_once("config_secret.php");
+require("config_secret.php");
 
-$dsn = "mysql:host=$dbhost";
+$dsn = "mysql:host=$dbhost;dbname=$dbname;charset=utf8";
 
 try {
     $dbh = new PDO($dsn, $dbuser, $dbpassword);

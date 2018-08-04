@@ -1,5 +1,5 @@
 <?php
-require_once("dbhost.php");
+require("dbhost.php");
 
 try {
     $dbname = "cabra";
