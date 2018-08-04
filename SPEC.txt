@@ -31,6 +31,7 @@ editar_cadastro.php: trocar nome de usuario e senha
 superuser.php: redefinir senha de algum usuario (usando superuser_senha)
 
 login.php: semelhante a cadastro.php
+fazer_login.php: exec
 logout.php: redirecionar a index.php
 
 sumario.php: saldo de bens, credito, e ajustes (todas transacoes) e despesas e receitas deste mes

@@ -15,6 +15,7 @@ try {
 (id int not null auto_increment,
 nome varchar(31),
 hash varchar(255),
+constraint u_nome unique (nome),
 constraint pk_usuario_id primary key (id)) engine=InnoDB");
         echo("Tabela de usuarios criada<br><br>");
 
@@ -26,6 +27,7 @@ sinal int,
 nome varchar(63),
 orcamento int,
 constraint pk_conta_id primary key (id),
+constraint u_nome unique (nome),
 constraint fk_conta_usuario foreign key (dono)
   references usuarios (id)) engine=InnoDB");
         echo("Tabela de contas criada<br><br>");
@@ -46,6 +48,19 @@ constraint fk_transacao_dr foreign key (dr)
 constraint fk_transacao_cr foreign key (cr)
   references contas (id)) engine=InnoDB");
         echo("Tabela de transações criada<br><br>");
+
+        $dbh->exec("create table if not exists autologin
+(id int not null auto_increment,
+rand varchar(40),
+dono int,
+constraint pk_autologin_id primary key (id),
+constraint fk_autologin_usuario foreign key (dono)
+  references usuarios (id)) engine=InnoDB");
+        echo("Tabela de autologin criada<br><br>");
+
+        echo('<a href="index.php">Voltar ao homepage</a>');
+        
+
         
     } else {
         echo("Tabelas já existem");

@@ -1,0 +1,2 @@
+[  ] auto login after creating account
+[  ] check cookies
