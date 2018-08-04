@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+ob_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -112,3 +115,4 @@
         <div class="container">
             
             <h1><a href="index.php">HOME</a></h1>
+            <h1><a href="fazer_logout.php">LOGOUT</a></h1>

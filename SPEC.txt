@@ -24,32 +24,34 @@ transacoes:
 
 Páginas:
 
-index.php: login.php ou redirecionar a sumario.php se houver sessão
-cadastro.php: nome de usuario, senha
-criar_cadastro.php: exec
-editar_cadastro.php: trocar nome de usuario e senha
-superuser.php: redefinir senha de algum usuario (usando superuser_senha)
+[  ] index.php: login.php ou redirecionar a sumario.php se houver sessão
 
-login.php: semelhante a cadastro.php
-fazer_login.php: exec
-logout.php: redirecionar a index.php
+[ok] cadastro.php: nome de usuario, senha
+[ok] criar_cadastro.php: exec
+[  ] editar_cadastro.php: trocar nome de usuario e senha
+[  ] superuser.php: redefinir senha de algum usuario (usando superuser_senha)
 
-sumario.php: saldo de bens, credito, e ajustes (todas transacoes) e despesas e receitas deste mes
+[--] login.php: => index.php: semelhante a cadastro.php
+[ok] fazer_login.php: exec
+[ok] logout.php: redirecionar a index.php
 
-tipo_de_conta.php?nome=N: N é um de "bens", "despesas", "receitas", "credito", ou "ajustes". Saldo de todas as contas do tipo selecionado. Exibir links caso nome não for especificado.
+[--] sumario.php: => index.php: saldo de bens, credito, e ajustes (todas transacoes) e despesas e receitas deste mes
 
-conta.php?id=123&a=2018-01-01&b=2018-07-15: extrato de transacoes entre datas a e b (opcionais)
+[  ] tipo_de_conta.php?nome=N: N é um de "bens", "despesas", "receitas", "credito", ou "ajustes".
+       Saldo de todas as contas do tipo selecionado. Exibir links caso nome não for especificado.
 
-nova_conta.php: tipo (select), nome, e orcamento (0 se deixar em branco)
-criar_conta.php: exec
-editar_conta.php?id=123: semelhante a nova_conta.php
-confirmar_excluir_conta.php: Sim/Não
-excluir_conta.php: excluir todas as transacoes que a tiver como dr ou cr
+[  ] conta.php?id=123&a=2018-01-01&b=2018-07-15: extrato de transacoes entre datas a e b (opcionais)
 
-transacao.php?id=123: detalhes de uma transacao
+[  ] nova_conta.php: tipo (select), nome, e orcamento (0 se deixar em branco)
+[  ] criar_conta.php: exec
+[  ] editar_conta.php?id=123: semelhante a nova_conta.php
+[  ] confirmar_excluir_conta.php: Sim/Não
+[  ] excluir_conta.php: excluir todas as transacoes que a tiver como dr ou cr
 
-nova_transacao.php?dr=M&cr=N: M e N são um dos "tipos de conta". data, nome, valor, dr, cr
-criar_transacao.php: exec
-editar_transacao.php?id=123&dr=M&cr=N: editar transacao
-confirmar_excluir_transacao.php: Sim/Não
-excluir_transacao.php: excluir somente a transacao
+[  ] transacao.php?id=123: detalhes de uma transacao
+
+[  ] nova_transacao.php?dr=M&cr=N: M e N são um dos "tipos de conta". data, nome, valor, dr, cr
+[  ] criar_transacao.php: exec
+[  ] editar_transacao.php?id=123&dr=M&cr=N: editar transacao
+[  ] confirmar_excluir_transacao.php: Sim/Não
+[  ] excluir_transacao.php: excluir somente a transacao

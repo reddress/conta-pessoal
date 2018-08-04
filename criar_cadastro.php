@@ -4,6 +4,7 @@ include("header.php");
 
 <?php
 require("dbhost.php");
+require("login_util.php");
 
 try {
     $nome = $_POST['nome'];
@@ -32,6 +33,13 @@ try {
         $insert_sql->execute([":nome" => $nome, ":hash" => $hash]);
 
         echo('Usuário criado. <a href="login.php">Fazer login</a>');
+
+        $lookup_sql = $dbh->prepare("select id, nome, hash from usuarios where nome = :nome");
+        $lookup_sql->execute([":nome" => $nome]);
+        $usuario_row = $lookup_sql->fetch();
+        save_cookie($dbh, $usuario_row['id']);
+
+        header('Location: index.php');
     } else {
         echo($errors);
         echo('<br><a href="javascript: history.back()">Tente novamente.</a>');

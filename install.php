@@ -51,14 +51,14 @@ constraint fk_transacao_cr foreign key (cr)
 
         $dbh->exec("create table if not exists autologin
 (id int not null auto_increment,
-rand varchar(40),
+rand varchar(63),
 dono int,
 constraint pk_autologin_id primary key (id),
 constraint fk_autologin_usuario foreign key (dono)
   references usuarios (id)) engine=InnoDB");
         echo("Tabela de autologin criada<br><br>");
 
-        echo('<a href="index.php">Voltar ao homepage</a>');
+        echo('<a href="index.php">Voltar a homepage</a>');
         
 
         
