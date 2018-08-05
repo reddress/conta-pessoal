@@ -1,4 +1,12 @@
-[  ] auto create basic accounts on signup
+[  ] auto create basic accounts on signup:
+       Outros bens
+       Outras despesas
+       Outras receitas
+       Empréstimos em dinheiro
+       Ajuste de bens
+       Ajuste de cartões
+       Outros ajustes
+       Contas apagadas
 
 [ok] auto login after creating account
 [ok] check cookies

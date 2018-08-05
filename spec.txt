@@ -28,14 +28,14 @@ Páginas:
        cookie ou sessao. Saldo de bens, credito, e ajustes
        (todas transacoes) e despesas e receitas deste mes
 
-[  ] conta.php?id=123&a=2018-01-01&b=2018-07-15:
-       saldo, extrato de transacoes entre datas a e b (opcionais)
+[  ] busca_transacao.php?q=ABC: navbar busca
 
-[  ] confirmar_excluir_conta.php?id=123: Sim/Não hidden id
-[  ] excluir_conta.php: (POST) excluir todas as transacoes
-       que a tiver como dr ou cr
+[  ] extrato.php?conta=123&a=2018-01-01&b=2018-07-15:
 
-[  ] transacao.php?id=123: detalhes de uma transacao
+[  ] conta.php?id=123: saldo, link a extrato,
+       lista de transacoes (paginar)
+
+[  ] transacao.php?id=123: detalhes de uma transacao, editar, excluir
 
 [  ] nova_transacao.php?dr=M&cr=N: M e N são um dos
        "tipos de conta". data, nome, valor, dr, cr
@@ -73,3 +73,6 @@ Concluídas:
 [ok] criar_conta.php: exec
 [ok] editar_conta.php?id=123: semelhante a nova_conta.php
 [ok] exec_editar_conta.php
+[ok] confirmar_excluir_conta.php?id=123: Sim/Não hidden id
+[ok] excluir_conta.php: (POST) excluir todas as transacoes
+       que a tiver como dr ou cr

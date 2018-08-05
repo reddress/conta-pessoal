@@ -17,7 +17,8 @@ $query_sql->execute([":uid" => $_SESSION['uid'], ":tipo" => $tipo]);
 
 foreach($query_sql as $row) {
 ?>
-    <a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a> <a href="editar_conta.php?t=<?= $tipo ?>&id=<?= $row['id'] ?>">(editar)</a><br><br>
+    <a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a>
+    <br><br>
 <?php
 }
 ?>

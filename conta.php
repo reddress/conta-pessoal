@@ -29,6 +29,8 @@ $orcamento = $query_row['orcamento'];
 
     <h3><a href="editar_conta.php?id=<?= $conta_id ?>">Editar tipo e nome</a></h3>
 
+    <h3><a href="confirmar_excluir_conta.php?id=<?= $conta_id ?>">Excluir conta</a></h3>
+
 <?php
 if ($tipo == "despesas") {
     echo("Orçamento: $orcamento");
@@ -43,9 +45,25 @@ LIST/TABLE PAGINATE TRANSACTIONS
 } else {
 ?>
     
-    <h1>Todas as contas</h1>
+    <h1>Contas</h1>
+
+    LIST EVERY CONTA WITH SALDO OR MONTHLY TOTAL
+    <br><br>
     
-    LIST/TABLE
+    <a href="tipo_de_conta.php?t=bens">Bens</a>
+    <br><br>
+    
+    <a href="tipo_de_conta.php?t=despesas">Despesas</a>
+    <br><br>
+    
+    <a href="tipo_de_conta.php?t=receitas">Receitas</a>
+    <br><br>
+    
+    <a href="tipo_de_conta.php?t=credito">Crédito</a>
+    <br><br>
+    
+    <a href="tipo_de_conta.php?t=ajustes">Ajustes</a>
+    <br><br>
     
 <?php
 }

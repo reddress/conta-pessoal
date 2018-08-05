@@ -55,8 +55,8 @@ ob_start();
                             Despesas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownDespesas">
-                            <a class="dropdown-item" href="#">Pagamento à vista</a>
-                            <a class="dropdown-item" href="#" "pagamento_a_credito" "Despesas" "Credito">Pagamento à crédito</a>
+                            <a class="dropdown-item" href="#">Pago à vista</a>
+                            <a class="dropdown-item" href="#" "pagamento_a_credito" "Despesas" "Credito">Pago com cartão de crédito</a>
                             <a class="dropdown-item" href="#" "outra_despesa" "Despesas" "Todos">Outra despesa</a>
                         </div>
                     </li>
@@ -73,7 +73,7 @@ ob_start();
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownCartoes">
                             <a class="dropdown-item" href="#" "pagamento_de_fatura" "Credito" "Bens">Pagamento de fatura</a>
-                            <a class="dropdown-item" href="#" "emprestimo_de_cartao" "Bens" "Credito">Empréstimo de cartão</a>
+                            <a class="dropdown-item" href="#" "emprestimo_de_cartao" "Bens" "Credito">Empréstimo do cartão</a>
                         </div>
                     </li>
 
