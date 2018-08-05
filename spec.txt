@@ -24,20 +24,6 @@ transacoes:
 
 Páginas:
 
-[  ] index.php: login.php ou exibir sumario se houver
-       cookie ou sessao. Saldo de bens, credito, e ajustes
-       (todas transacoes) e despesas e receitas deste mes
-
-[  ] busca_transacao.php?q=ABC: navbar busca
-
-[  ] extrato.php?conta=123&a=2018-01-01&b=2018-07-15: transacoes between
-       dates a and b
-
-[  ] conta.php?id=123: saldo, link a extrato,
-       lista de transacoes (paginar)
-
-[  ] transacao.php?id=123: detalhes de uma transacao, editar, excluir
-
 [  ] nova_transacao.php?dr=M&cr=N: M e N são um dos
        "tipos de conta". data, nome, valor, dr, cr
 [  ] criar_transacao.php: exec
@@ -46,6 +32,19 @@ Páginas:
 [  ] confirmar_excluir_transacao.php?id=123: Sim/Não hidden id
 [  ] excluir_transacao.php: (POST) excluir somente a transacao
 
+[  ] transacao.php?id=123: detalhes de uma transacao, editar, excluir
+
+[  ] conta.php?id=123: saldo, link a extrato,
+       lista de transacoes (paginar)
+
+[  ] index.php: login.php ou exibir sumario se houver
+       cookie ou sessao. Saldo de bens, credito, e ajustes
+       (todas transacoes) e despesas e receitas deste mes
+
+[  ] busca_transacao.php?q=ABC: navbar busca
+
+[  ] extrato.php?conta=123&a=2018-01-01&b=2018-07-15: transacoes between
+       dates a and b
 
 Concluídas:
 

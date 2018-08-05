@@ -55,15 +55,15 @@ ob_start();  // needed for header('Location: ...') to work
                             Despesas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownDespesas">
-                            <a class="dropdown-item" href="#">Pago à vista</a>
-                            <a class="dropdown-item" href="#" "pagamento_a_credito" "Despesas" "Credito">Pago com cartão de crédito</a>
-                            <a class="dropdown-item" href="#" "outra_despesa" "Despesas" "Todos">Outra despesa</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=bens&t=pago_a_vista">Pago à vista</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesa&cr=credito&t=pago_com_cartao" "pagamento_a_credito" "Despesas" "Credito">Pago com cartão de crédito</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesa&cr=tudo&t=outra_despesa" "outra_despesa" "Despesas" "Todos">Outra despesa</a>
                         </div>
                     </li>
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#" "receita" "Bens" "Receitas">Receita</a>
+                        <a class="nav-link" href="nova_transacao.php?dr=bens&cr=receita&t=receita" "receita" "Bens" "Receitas">Receita</a>
                     </li>
 
 
@@ -72,8 +72,8 @@ ob_start();  // needed for header('Location: ...') to work
                             Cartões
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownCartoes">
-                            <a class="dropdown-item" href="#" "pagamento_de_fatura" "Credito" "Bens">Pagamento de fatura</a>
-                            <a class="dropdown-item" href="#" "emprestimo_de_cartao" "Bens" "Credito">Empréstimo do cartão</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=bens&t=pagamento_fatura" "pagamento_de_fatura" "Credito" "Bens">Pagamento de fatura</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=credito&t=emprestimo_do_cartao" "emprestimo_de_cartao" "Bens" "Credito">Empréstimo do cartão</a>
                         </div>
                     </li>
 
@@ -83,8 +83,8 @@ ob_start();  // needed for header('Location: ...') to work
                             Transferências
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownTransferencias">
-                            <a class="dropdown-item" href="#" "transferencia_entre_bens" "Bens" "Bens">Transferência entre bens</a>
-                            <a class="dropdown-item" href="#" "transferencia_entre_cartoes" "Credito" "Credito">Transferência entre cartões</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=bens&t=tr_bens" "transferencia_entre_bens" "Bens" "Bens">Transferência entre bens</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=credito&t=tr_cartoes" "transferencia_entre_cartoes" "Credito" "Credito">Transferência entre cartões</a>
                         </div>
                     </li>
 
@@ -94,8 +94,8 @@ ob_start();  // needed for header('Location: ...') to work
                             Reembolsos
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownReembolsos">
-                            <a class="dropdown-item" href="#">Reembolso à vista</a>
-                            <a class="dropdown-item" href="#">Reembolso no cartão</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=despesas&t=reemb_a_vista">Reembolso à vista</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=despesas&t=reemb_no_cartao">Reembolso no cartão</a>
                         </div>
                     </li>
 
@@ -104,9 +104,9 @@ ob_start();  // needed for header('Location: ...') to work
                             Ajustes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownAjustes">
-                            <a class="dropdown-item" href="#">Ajustar saldo de bens</a>
-                            <a class="dropdown-item" href="#">Ajustar saldo de cartão</a>
-                            <a class="dropdown-item" href="#">Outro ajuste</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=ajustes&t=ajustar_bens">Ajustar saldo de bens</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=ajustes&cr=credito&t=ajustar_cartao">Ajustar saldo de cartão</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=tudo&cr=ajustes&t=outro_ajuste">Outro ajuste</a>
                         </div>
                     </li>
 
