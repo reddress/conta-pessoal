@@ -1,7 +1,7 @@
 <?php
 require_once("dbhost.php");
 
-$debug = false;
+$debug = true;
 
 try {
     if ($debug) {

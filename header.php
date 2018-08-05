@@ -37,7 +37,7 @@ ob_start();
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Contas
+                            Gerenciar contas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownContas">
                             <a class="dropdown-item" href="tipo_de_conta.php?t=bens" "Bens">Bens</a>
@@ -54,8 +54,8 @@ ob_start();
                             Ajustes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownAjustes">
-                            <a class="dropdown-item" href="#">Saldo de bens</a>
-                            <a class="dropdown-item" href="#">Saldo de cartão</a>
+                            <a class="dropdown-item" href="#">Ajustar saldo de bens</a>
+                            <a class="dropdown-item" href="#">Ajustar saldo de cartão</a>
                             <a class="dropdown-item" href="#">Outro ajuste</a>
                         </div>
                     </li>

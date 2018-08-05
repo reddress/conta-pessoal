@@ -28,12 +28,19 @@ try {
         } else {
             $sinal = -1;
         }
+
+        if (isset($_POST['orcamento'])) {
+            $orcamento = $_POST['orcamento'];
+        } else {
+            $orcamento = 0;
+        }
         
-        $insert_sql = $dbh->prepare("insert into contas (dono, tipo, sinal, nome) values (:uid, :tipo, :sinal, :nome)");
+        $insert_sql = $dbh->prepare("insert into contas (dono, tipo, sinal, nome, orcamento) values (:uid, :tipo, :sinal, :nome, :orcamento)");
         $insert_sql->execute([":uid" => $_SESSION['uid'],
                               ":tipo" => $tipo,
                               ":sinal" => $sinal,
-                              ":nome" => $nome]);
+                              ":nome" => $nome,
+                              ":orcamento" => $orcamento]);
 
         if (isset($_POST['redir'])) {
             $redirect = $_POST['redir'];

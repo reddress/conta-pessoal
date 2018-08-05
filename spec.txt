@@ -26,13 +26,13 @@ Páginas:
 
 [  ] index.php: login.php ou exibir sumario se houver cookie ou sessao
 
-[  ] tipo_de_conta.php?nome=N: N é um de "bens", "despesas", "receitas", "credito", ou "ajustes".
+[ok] tipo_de_conta.php?nome=N: N é um de "bens", "despesas", "receitas", "credito", ou "ajustes".
        Saldo de todas as contas do tipo selecionado. Exibir links caso nome não for especificado.
 
 [  ] conta.php?id=123&a=2018-01-01&b=2018-07-15: extrato de transacoes entre datas a e b (opcionais)
 
-[  ] nova_conta.php?tipo=N: N é um dos "tipos de conta", nome, e orcamento (0 se deixar em branco)
-[  ] criar_conta.php: exec
+[ok] nova_conta.php?tipo=N: N é um dos "tipos de conta", nome, e orcamento (0 se deixar em branco)
+[ok] criar_conta.php: exec
 [  ] editar_conta.php?id=123: semelhante a nova_conta.php
 [  ] confirmar_excluir_conta.php: Sim/Não
 [  ] excluir_conta.php: excluir todas as transacoes que a tiver como dr ou cr

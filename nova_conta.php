@@ -6,7 +6,7 @@ if (isset($_GET['t'])) {
     $tipo = $_GET['t'];
 ?>
 
-    <h1>Nova conta de <a href="tipo_de_conta.php?t=<?= $tipo ?>"><?= $tipo ?></a></h1>
+    <h1><a href="nova_conta.php">Nova conta</a> de <a href="tipo_de_conta.php?t=<?= $tipo ?>"><?= $tipo ?></a></h1>
 
 <form action="criar_conta.php" method="POST">
     <table class="table-sm">
