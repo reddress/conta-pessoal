@@ -2,7 +2,7 @@
 if (!isset($_SESSION['uid'])) {
     session_start();
 }
-ob_start();
+ob_start();  // needed for header('Location: ...') to work
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

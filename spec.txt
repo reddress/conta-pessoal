@@ -30,7 +30,8 @@ Páginas:
 
 [  ] busca_transacao.php?q=ABC: navbar busca
 
-[  ] extrato.php?conta=123&a=2018-01-01&b=2018-07-15:
+[  ] extrato.php?conta=123&a=2018-01-01&b=2018-07-15: transacoes between
+       dates a and b
 
 [  ] conta.php?id=123: saldo, link a extrato,
        lista de transacoes (paginar)
