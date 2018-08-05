@@ -24,35 +24,31 @@ transacoes:
 
 Páginas:
 
-[  ] index.php: login.php ou exibir sumario se houver cookie ou sessao
-
-[ok] tipo_de_conta.php?nome=N: N é um de
-       "bens", "despesas", "receitas", "credito", ou "ajustes".
-       Saldo de todas as contas do tipo selecionado.
-       Exibir links caso nome não for especificado.
+[  ] index.php: login.php ou exibir sumario se houver
+       cookie ou sessao. Saldo de bens, credito, e ajustes
+       (todas transacoes) e despesas e receitas deste mes
 
 [  ] conta.php?id=123&a=2018-01-01&b=2018-07-15:
-       extrato de transacoes entre datas a e b (opcionais)
+       saldo, extrato de transacoes entre datas a e b (opcionais)
 
-[ok] nova_conta.php?tipo=N: N é um dos "tipos de conta",
-       nome, e orcamento (0 se deixar em branco)
-[ok] criar_conta.php: exec
-[  ] editar_conta.php?id=123: semelhante a nova_conta.php
-[  ] confirmar_excluir_conta.php: Sim/Não
-[  ] excluir_conta.php?id=123: excluir todas as transacoes
+[  ] confirmar_excluir_conta.php?id=123: Sim/Não hidden id
+[  ] excluir_conta.php: (POST) excluir todas as transacoes
        que a tiver como dr ou cr
 
 [  ] transacao.php?id=123: detalhes de uma transacao
 
-[  ] nova_transacao.php?dr=M&cr=N: M e N são um dos "tipos de conta". data, nome, valor, dr, cr
+[  ] nova_transacao.php?dr=M&cr=N: M e N são um dos
+       "tipos de conta". data, nome, valor, dr, cr
 [  ] criar_transacao.php: exec
 [  ] editar_transacao.php?id=123&dr=M&cr=N: editar transacao
-[  ] confirmar_excluir_transacao.php: Sim/Não
-[  ] excluir_transacao.php: excluir somente a transacao
+[  ] exec_editar_transacao.php
+[  ] confirmar_excluir_transacao.php?id=123: Sim/Não hidden id
+[  ] excluir_transacao.php: (POST) excluir somente a transacao
 
 
 Concluídas:
 
+== usuarios ==
 [ok] cadastro.php: nome de usuario, senha
 [ok] criar_cadastro.php: exec
 
@@ -66,4 +62,14 @@ Concluídas:
 [ok] fazer_login.php: exec
 [ok] logout.php: redirecionar a index.php
 
-[--] sumario.php: => index.php: saldo de bens, credito, e ajustes (todas transacoes) e despesas e receitas deste mes
+== contas ==
+[ok] tipo_de_conta.php?nome=N: N é um de
+       "bens", "despesas", "receitas", "credito", ou "ajustes".
+       Saldo de todas as contas do tipo selecionado.
+       Exibir links caso nome não for especificado.
+
+[ok] nova_conta.php?tipo=N: N é um dos "tipos de conta",
+       nome, e orcamento (0 se deixar em branco)
+[ok] criar_conta.php: exec
+[ok] editar_conta.php?id=123: semelhante a nova_conta.php
+[ok] exec_editar_conta.php

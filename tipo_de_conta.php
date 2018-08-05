@@ -7,17 +7,17 @@ if (isset($_GET['t'])) {
     $tipo = $_GET['t'];
 ?>
 
-<h1>Tipo de conta: <?= $tipo ?></h1>
+    <h1><a href="tipo_de_conta.php">Tipo de conta</a>: <?= $tipo ?></h1>
 
 <h3><a href="nova_conta.php?t=<?= $tipo ?>">Nova conta</h3>
     <br>
 <?php
-$query_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = :tipo");
+$query_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = :tipo order by nome");
 $query_sql->execute([":uid" => $_SESSION['uid'], ":tipo" => $tipo]);
 
 foreach($query_sql as $row) {
 ?>
-    <a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a><br><br>
+    <a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a> <a href="editar_conta.php?t=<?= $tipo ?>&id=<?= $row['id'] ?>">(editar)</a><br><br>
 <?php
 }
 ?>
@@ -26,7 +26,7 @@ foreach($query_sql as $row) {
 <?php
 } else {
 ?>
-    <h1>Sumário de tipo de conta</h1>
+    <h1>Tipos de conta</h1>
     
     <a href="tipo_de_conta.php?t=bens">Bens</a><br><br>
     <a href="tipo_de_conta.php?t=despesas">Despesas</a><br><br>

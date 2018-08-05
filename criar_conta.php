@@ -7,10 +7,14 @@ include("header.php");
 require("dbhost.php");
 
 try {
-    $nome = $_POST['nome'];
     $tipo = $_POST['tipo'];
-    
+    $nome = $_POST['nome'];
+
     $errors = "";
+
+    if (trim($nome) == "") {
+        exit('Nome não deve estar em branco. <a href="javascript: history.back()">Tente novamente.</a>');
+    }
     
     // check if conta exists
     $existe_sql = $dbh->prepare("select count(*) as ct from contas where dono = :uid and nome = :nome");
@@ -31,6 +35,9 @@ try {
 
         if (isset($_POST['orcamento'])) {
             $orcamento = $_POST['orcamento'];
+            if ($orcamento == "") {
+                $orcamento = 0;
+            }
         } else {
             $orcamento = 0;
         }
@@ -58,6 +65,8 @@ try {
 
         <h3>Conta <?= $nome ?> criada. <a href="<?= $redirect ?>.php<?= $q ?>">Voltar a <?= $redirect ?></a></h3>
 
+        <br>
+        <a href="tipo_de_conta.php?t=<?= $tipo ?>">Voltar a lista de tipo de conta <?= $tipo ?></a>
     <?php
     } else {
         echo($errors);
