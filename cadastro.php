@@ -32,9 +32,17 @@ include('header.php');
                 <input name="senha_repetir" id="senha_repetir" type="password">
             </td>
         </tr>
-    </table>
 
-    <input type="submit" value="Enviar">
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <input type="submit" value="Enviar">
+            </td>
+        </tr>
+        
+    </table>
 </form>
 
 <?php

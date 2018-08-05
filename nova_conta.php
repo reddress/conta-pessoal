@@ -52,10 +52,19 @@ if (isset($_GET['t'])) {
         <?php
         }
         ?>
+
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <input type="submit" value="Enviar">
+            </td>
+        </tr>
         
     </table>
 
-    <input type="submit" value="Enviar">
+
 </form>
 
 <?php

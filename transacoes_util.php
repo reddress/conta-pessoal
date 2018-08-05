@@ -3,8 +3,8 @@
 $TR_NOMES = [
     "geral" => "Geral",
     
-    "pago_a_vista" => "Pago à vista",
-    "pago_com_cartao" => "Pago com cartão de crédito",
+    "pagto_a_vista" => "Pagamento à vista",
+    "pagto_com_cartao" => "Pagamento com cartão de crédito",
     "outra_despesa" => "Outra despesa",
 
     "receita" => "Receita",
@@ -22,3 +22,21 @@ $TR_NOMES = [
     "ajustar_cartao" => "Ajustar saldo de cartão",
     "outro_ajuste" => "Outro ajuste",    
 ];
+
+function select_contas($dbh, $uid, $tipo) {
+    if ($tipo == "tudo") {
+        $select_sql = $dbh->prepare("select id, nome from contas where dono = :uid order by nome");
+        $select_sql->execute([":uid" => $uid]);
+    } else {
+        $select_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = :tipo order by nome");
+        $select_sql->execute([":uid" => $uid,
+                               ":tipo" => $tipo]);
+    }
+    $options = "";
+    foreach ($select_sql as $row) {
+        $options .= "<option value=\"{$row['id']}\">{$row['nome']}</option>\n";
+    }
+    
+    return $options;
+}
+?>

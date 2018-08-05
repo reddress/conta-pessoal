@@ -2,6 +2,7 @@
 include('boot_guest.php');
 include('header.php');
 include('transacoes_util.php');
+require("dbhost.php");
 
 if (isset($_GET['dr'])) {
     $dr = $_GET['dr'];
@@ -24,56 +25,80 @@ if (isset($_GET['t'])) {
 ?>
 
     <h1>Nova transação: <?= $TR_NOMES[$tipo] ?></h1>
-    De <?= $cr ?> para <?= $dr ?>
+    <h3>De <?= $cr ?> para <?= $dr ?></h3>
     
 <form action="criar_transacao.php" method="POST">
     <table class="table-sm">
 
         <tr>
             <td>
-                <label for="nome">Nome</label>
+                <label for="nome">Descrição</label>
             </td>
             <td>
                 <input name="nome" id="nome" autofocus>
-                <input name="tipo" value="<?= $tipo ?>" type="hidden">
-                <input name="redir" value="nova_conta" type="hidden">
-                <input name="q" value="?t=<?= $tipo ?>" type="hidden">
             </td>
         </tr>
-
-        <?php
-        if ($tipo == "despesas") {
-        ?>
-            
-        <tr>
-            <td>
-                <label for="orcamento">Orçamento</label>
-            </td>
-            <td>
-                <input name="orcamento" id="orcamento" type="number" step="0.01">
-            </td>
-        </tr>
-
-        <?php
-        } else if ($tipo == "credito") {
-        ?>
         
         <tr>
             <td>
-                <label for="orcamento">Limite</label>
+                <label for="valor">Valor</label>
             </td>
             <td>
-                <input name="orcamento" id="orcamento" type="number" step="0.01">
+                <input name="valor" id="valor" type="number" step="0.01">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <label for="cr">De (conta)</label>
+            </td>
+            <td>
+                <select name="cr" id="cr" class="form-control">
+                    <?= select_contas($dbh, $_SESSION['uid'], $cr) ?>
+                </select>
+            </td>
+            <td>
+                <a href="nova_conta.php?t=<?= $cr ?>">(criar conta)</a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <label for="dr">Para (conta)</label>
+            </td>
+            <td>
+                <select name="dr" id="dr" class="form-control">
+                    <?= select_contas($dbh, $_SESSION['uid'], $dr) ?>
+                </select>
+            </td>
+            <td>
+                <a href="nova_conta.php?t=<?= $dr ?>">(criar conta)</a>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <label for="data">Data (pick)</label>
+            </td>
+            <td>
+                <input name="data" id="data">
+                <input name="form_dr" value="<?= $_GET['dr'] ?>" type="hidden">
+                <input name="form_cr" value="<?= $_GET['cr'] ?>" type="hidden">
+                <input name="form_t" value="<?= $_GET['t'] ?>" type="hidden">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <input type="submit" value="Enviar">
             </td>
         </tr>
 
-        <?php
-        }
-        ?>
-        
     </table>
 
-    <input type="submit" value="Enviar">
 </form>
 
 <?php

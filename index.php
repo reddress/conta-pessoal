@@ -31,9 +31,18 @@ require("login_util.php");
                 <input name="senha" id="senha" type="password">
             </td>
         </tr>
+
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <input type="submit" value="Enviar">
+            </td>
+        </tr>
+
     </table>
 
-    <input type="submit" value="Enviar">
 </form>
 
 <?php } else { ?>
