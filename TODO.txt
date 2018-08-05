@@ -1,2 +1,4 @@
-[  ] auto login after creating account
-[  ] check cookies
+[  ] auto create basic accounts on signup
+
+[ok] auto login after creating account
+[ok] check cookies

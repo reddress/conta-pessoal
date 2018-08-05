@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION['uid'])) {
+    session_start();
+}
 ob_start();
 ?>
 <!DOCTYPE html>
@@ -38,11 +40,11 @@ ob_start();
                             Contas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownContas">
-                            <a class="dropdown-item" href="#" "Bens">Bens</a>
-                            <a class="dropdown-item" href="#" "Despesas">Despesas</a>
-                            <a class="dropdown-item" href="#" "Receitas">Receitas</a>
-                            <a class="dropdown-item" href="#" "Credito">Crédito</a>
-                            <a class="dropdown-item" href="#" "Ajustes">Ajustes</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=bens" "Bens">Bens</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=despesas" "Despesas">Despesas</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=receitas" "Receitas">Receitas</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=credito" "Credito">Crédito</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=ajustes" "Ajustes">Ajustes</a>
                         </div>
                     </li>
 
