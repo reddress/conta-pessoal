@@ -2,7 +2,7 @@
 include("header.php");
 ?>
 
-<h1>Superuser (redefinir senha de usuário)</h1>
+<h1>Superuser (mudar senha de usuário)</h1>
 
 <form action="redefinir_por_superuser.php" method="POST">
     <table class="table-sm">

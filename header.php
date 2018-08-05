@@ -31,9 +31,11 @@ ob_start();
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
 
+                    <!-- 
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Últimas transações</a>
                     </li>
+                    -->
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,19 +49,6 @@ ob_start();
                             <a class="dropdown-item" href="tipo_de_conta.php?t=ajustes" "Ajustes">Ajustes</a>
                         </div>
                     </li>
-
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAjustes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ajustes
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownAjustes">
-                            <a class="dropdown-item" href="#">Ajustar saldo de bens</a>
-                            <a class="dropdown-item" href="#">Ajustar saldo de cartão</a>
-                            <a class="dropdown-item" href="#">Outro ajuste</a>
-                        </div>
-                    </li>
-
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDespesas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -110,12 +99,23 @@ ob_start();
                         </div>
                     </li>
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAjustes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ajustes
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownAjustes">
+                            <a class="dropdown-item" href="#">Ajustar saldo de bens</a>
+                            <a class="dropdown-item" href="#">Ajustar saldo de cartão</a>
+                            <a class="dropdown-item" href="#">Outro ajuste</a>
+                        </div>
+                    </li>
+
                     <?php
                     if (isset($_SESSION['uid'])) {
                     ?>
                         
                     <li class="nav-item active">
-                        <a class="nav-link" href="nova_senha.php">Redefinir senha</a>
+                        <a class="nav-link" href="nova_senha.php">Mudar senha</a>
                     </li>
                     
                     <li class="nav-item active">

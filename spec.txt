@@ -26,16 +26,21 @@ Páginas:
 
 [  ] index.php: login.php ou exibir sumario se houver cookie ou sessao
 
-[ok] tipo_de_conta.php?nome=N: N é um de "bens", "despesas", "receitas", "credito", ou "ajustes".
-       Saldo de todas as contas do tipo selecionado. Exibir links caso nome não for especificado.
+[ok] tipo_de_conta.php?nome=N: N é um de
+       "bens", "despesas", "receitas", "credito", ou "ajustes".
+       Saldo de todas as contas do tipo selecionado.
+       Exibir links caso nome não for especificado.
 
-[  ] conta.php?id=123&a=2018-01-01&b=2018-07-15: extrato de transacoes entre datas a e b (opcionais)
+[  ] conta.php?id=123&a=2018-01-01&b=2018-07-15:
+       extrato de transacoes entre datas a e b (opcionais)
 
-[ok] nova_conta.php?tipo=N: N é um dos "tipos de conta", nome, e orcamento (0 se deixar em branco)
+[ok] nova_conta.php?tipo=N: N é um dos "tipos de conta",
+       nome, e orcamento (0 se deixar em branco)
 [ok] criar_conta.php: exec
 [  ] editar_conta.php?id=123: semelhante a nova_conta.php
 [  ] confirmar_excluir_conta.php: Sim/Não
-[  ] excluir_conta.php: excluir todas as transacoes que a tiver como dr ou cr
+[  ] excluir_conta.php?id=123: excluir todas as transacoes
+       que a tiver como dr ou cr
 
 [  ] transacao.php?id=123: detalhes de uma transacao
 
@@ -54,7 +59,7 @@ Concluídas:
 [ok] nova_senha.php: trocar nome de usuario e senha
 [ok] alterar_senha.php: exec
 
-[ok] su.php: (superuser) redefinir senha de algum usuario (usando senha_superuser_default)
+[ok] su.php: (superuser) mudar senha de algum usuario (usando senha_superuser_default)
 [ok] redefinir_por_superuser.php: exec
 
 [--] login.php: => index.php: semelhante a cadastro.php

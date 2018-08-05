@@ -7,7 +7,7 @@ include("login_util.php");
 if ($username != "anônimo") {
 ?>
     
-<h1>Redefinir senha para <?= $username ?></h1>
+<h1>Mudar senha para <?= $username ?></h1>
 
 <form action="redefinir_senha.php" method="POST">
     <table class="table-sm">
