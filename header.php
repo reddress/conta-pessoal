@@ -44,11 +44,11 @@ ob_start();  // needed for header('Location: ...') to work
                             Gerenciar contas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownContas">
-                            <a class="dropdown-item" href="tipo_de_conta.php?t=bens" "Bens">Bens</a>
-                            <a class="dropdown-item" href="tipo_de_conta.php?t=despesas" "Despesas">Despesas</a>
-                            <a class="dropdown-item" href="tipo_de_conta.php?t=receitas" "Receitas">Receitas</a>
-                            <a class="dropdown-item" href="tipo_de_conta.php?t=credito" "Credito">Crédito</a>
-                            <a class="dropdown-item" href="tipo_de_conta.php?t=ajustes" "Ajustes">Ajustes</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=bens">Bens</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=despesas">Despesas</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=receitas">Receitas</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=credito">Crédito</a>
+                            <a class="dropdown-item" href="tipo_de_conta.php?t=ajustes">Ajustes</a>
                         </div>
                     </li>
 
