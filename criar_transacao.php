@@ -32,7 +32,7 @@ try {
         exit('<a href="javascript: history.back()">Tente novamente.</a>');
     }
     
-    $insert_sql = $dbh->prepare("insert into contas (dono, tipo, sinal, nome, orcamento) values (:uid, :tipo, :sinal, :nome, :orcamento)");
+    // $insert_sql = $dbh->prepare("insert into contas (dono, tipo, sinal, nome, orcamento) values (:uid, :tipo, :sinal, :nome, :orcamento)");
 
     /*
     $insert_sql->execute([":uid" => $_SESSION['uid'],
