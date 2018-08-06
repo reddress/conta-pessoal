@@ -24,7 +24,6 @@ transacoes:
 
 Páginas:
 
-[  ] criar_transacao.php: exec
 [  ] editar_transacao.php?id=123&dr=M&cr=N: editar transacao
 [  ] exec_editar_transacao.php
 [  ] confirmar_excluir_transacao.php?id=123: Sim/Não hidden id
@@ -79,4 +78,4 @@ Concluídas:
 [ok] nova_transacao.php?dr=M&cr=N&t=TIPO: M e N são um dos
        "tipos de conta". TIPO é uma variável com o nome da transacao
        data, nome, valor, dr, cr
-       
+[ok] criar_transacao.php: exec

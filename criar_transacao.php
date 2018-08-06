@@ -24,9 +24,12 @@ try {
 
     $nome = $_POST['nome'];
     $valor = $_POST['valor'];
-    $data = $_POST['data'];
-    
+    $data_dmy = $_POST['data'];
 
+    // reformat date
+    $date_obj = date_create_from_format("d/m/Y", $data_dmy);
+    $data = date_format($date_obj, "Y-m-d");
+    
     if (trim($nome) == "") {
         $errors .= 'Descrição não deve estar em branco.<br>';
     }
