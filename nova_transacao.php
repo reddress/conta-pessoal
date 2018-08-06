@@ -24,8 +24,12 @@ if (isset($_GET['t'])) {
 
 ?>
 
-    <h1>Nova transação: <?= $TR_NOMES[$tipo] ?></h1>
-    <h3>De <?= $cr ?> para <?= $dr ?></h3>
+<link rel="stylesheet" href="css/picka/default.css">
+<link rel="stylesheet" href="css/picka/default.date.css">
+
+
+<h1>Nova transação: <?= $TR_NOMES[$tipo] ?></h1>
+<h3>De <?= $cr ?> para <?= $dr ?></h3>
     
 <form action="criar_transacao.php" method="POST">
     <table class="table-sm">
@@ -78,10 +82,10 @@ if (isset($_GET['t'])) {
         
         <tr>
             <td>
-                <label for="data">Data (pick)</label>
+                <label for="data">Data</label>
             </td>
             <td>
-                <input name="data" id="data">
+                <input name="data" id="data" value="<?= date('d/m/Y') ?>">
                 <input name="form_dr" value="<?= $_GET['dr'] ?>" type="hidden">
                 <input name="form_cr" value="<?= $_GET['cr'] ?>" type="hidden">
                 <input name="form_t" value="<?= $_GET['t'] ?>" type="hidden">
@@ -102,5 +106,5 @@ if (isset($_GET['t'])) {
 </form>
 
 <?php
-    include('footer.php');
+include("data_footer.php");
 ?>

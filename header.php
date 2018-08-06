@@ -117,14 +117,14 @@ ob_start();  // needed for header('Location: ...') to work
                     <li class="nav-item active">
                         <a class="nav-link" href="nova_senha.php">Mudar senha</a>
                     </li>
-                    
-                    <li class="nav-item active">
-                        <a class="nav-link" href="fazer_logout.php">Logout</a>
-                    </li>
-                    
+
                     <?php
                     }
                     ?>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="fazer_logout.php">Logout</a>
+                    </li>
 
                 </ul>
             </div>

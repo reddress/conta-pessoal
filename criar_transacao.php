@@ -8,13 +8,24 @@ require("dbhost.php");
 require("transacoes_util.php");
 
 try {
+    $errors = "";
+
+    if (!isset($_POST['dr'])) {
+        $errors .= 'Para conta não deve estar em branco.<br>';
+    } else {
+        $dr_id = $_POST['dr'];
+    }        
+
+    if (!isset($_POST['cr'])) {
+        $errors .= 'De conta não deve estar em branco.<br>';
+    } else {
+        $cr_id = $_POST['cr'];
+    }
+
     $nome = $_POST['nome'];
     $valor = $_POST['valor'];
-    $dr_id = $_POST['dr'];
-    $cr_id = $_POST['cr'];
     $data = $_POST['data'];
     
-    $errors = "";
 
     if (trim($nome) == "") {
         $errors .= 'Descrição não deve estar em branco.<br>';
@@ -29,18 +40,18 @@ try {
     }
 
     if ($errors != "") {
+        echo($errors);
         exit('<a href="javascript: history.back()">Tente novamente.</a>');
     }
-    
-    // $insert_sql = $dbh->prepare("insert into contas (dono, tipo, sinal, nome, orcamento) values (:uid, :tipo, :sinal, :nome, :orcamento)");
 
-    /*
+    $insert_sql = $dbh->prepare("insert into transacoes (dono, data, nome, valor, dr, cr) values (:uid, :data, :nome, :valor, :dr, :cr)");
+
     $insert_sql->execute([":uid" => $_SESSION['uid'],
-                          ":tipo" => $tipo,
-                          ":sinal" => $sinal,
+                          ":data" => $data,
                           ":nome" => $nome,
-                          ":orcamento" => $orcamento]);
-    */
+                          ":valor" => $valor,
+                          ":dr" => $dr_id,
+                          ":cr" => $cr_id]);
 
     // redirect to same type of form
     $redirect = "nova_transacao";
