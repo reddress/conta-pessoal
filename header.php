@@ -106,9 +106,9 @@ ob_start();  // needed for header('Location: ...') to work
                             Ajustes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownAjustes">
-                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=ajustes&t=ajustar_bens">Ajustar saldo de bens</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=ajustes&cr=credito&t=ajustar_cartao">Ajustar saldo de cartão</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=tudo&cr=ajustes&t=outro_ajuste">Outro ajuste</a>
+                            <a class="dropdown-item" href="ajuste.php?t=bens">Ajustar saldo de bens</a>
+                            <a class="dropdown-item" href="ajuste.php?t=credito">Ajustar saldo de cartão</a>
+                            <a class="dropdown-item" href="ajuste.php?t=outros">Outro ajuste</a>
                         </div>
                     </li>
 
