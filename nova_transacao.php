@@ -24,40 +24,18 @@ if (isset($_GET['t'])) {
 
 ?>
 
-<link rel="stylesheet" href="css/picka/default.css">
-<link rel="stylesheet" href="css/picka/default.date.css">
-
-
 <h1>Nova transação: <?= $TR_NOMES[$tipo] ?></h1>
 <h3>De <?= $cr ?> para <?= $dr ?></h3>
     
 <form action="criar_transacao.php" method="POST">
     <table class="table-sm">
-
-        <tr>
-            <td>
-                <label for="nome">Descrição</label>
-            </td>
-            <td>
-                <input name="nome" id="nome" autofocus>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>
-                <label for="valor">Valor</label>
-            </td>
-            <td>
-                <input name="valor" id="valor" type="number" step="0.01">
-            </td>
-        </tr>
         
         <tr>
             <td>
                 <label for="cr">De (conta)</label>
             </td>
             <td>
-                <select name="cr" id="cr" class="form-control">
+                <select name="cr" id="cr" class="form-control" autofocus>
                     <?= select_contas($dbh, $_SESSION['uid'], $cr) ?>
                 </select>
             </td>
@@ -80,6 +58,24 @@ if (isset($_GET['t'])) {
             </td>
         </tr>
         
+        <tr>
+            <td>
+                <label for="nome">Descrição</label>
+            </td>
+            <td>
+                <input name="nome" id="nome">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <label for="valor">Valor</label>
+            </td>
+            <td>
+                <input name="valor" id="valor" type="number" step="0.01">
+            </td>
+        </tr>
+
         <tr>
             <td>
                 <label for="data">Data</label>

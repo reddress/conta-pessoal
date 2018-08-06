@@ -11,6 +11,8 @@ ob_start();  // needed for header('Location: ...') to work
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Cabra</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/picka/default.css">
+        <link rel="stylesheet" href="css/picka/default.date.css">
     </head>
     <body>
         <nav class="navbar navbar-light bg-light">
