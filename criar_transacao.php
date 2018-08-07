@@ -47,15 +47,8 @@ try {
         exit('<a href="javascript: history.back()">Tente novamente.</a>');
     }
 
-    $insert_sql = $dbh->prepare("insert into transacoes (dono, data, nome, valor, dr, cr) values (:uid, :data, :nome, :valor, :dr, :cr)");
-
-    $insert_sql->execute([":uid" => $_SESSION['uid'],
-                          ":data" => $data,
-                          ":nome" => $nome,
-                          ":valor" => $valor,
-                          ":dr" => $dr_id,
-                          ":cr" => $cr_id]);
-
+    insert_transacao($dbh, $_SESSION['uid'], $data, $nome, $valor, $dr_id, $cr_id);
+    
     // redirect to same type of form
     $redirect = "nova_transacao";
     

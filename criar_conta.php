@@ -61,12 +61,14 @@ try {
             $redirect = "";
         }
 
-        ?>
+        $dr = $_POST['dr'];
+        $cr = $_POST['cr'];
+?>
 
-        <h3>Conta <?= $nome ?> criada. <a href="<?= $redirect ?>.php<?= $q ?>">Voltar a <?= $redirect ?></a></h3>
+<h3>Conta <?= $nome ?> criada.</h3>
 
-        <br>
-        <a href="tipo_de_conta.php?t=<?= $tipo ?>">Voltar a lista de tipo de conta <?= $tipo ?></a>
+<h3><a href="<?= $redirect ?>.php<?= $q ?>&dr=<?= $dr ?>&cr=<?= $cr ?>">Voltar a <?= $redirect ?></a></h3>
+
     <?php
     } else {
         echo($errors);

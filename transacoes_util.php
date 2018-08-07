@@ -7,7 +7,7 @@ $TR_NOMES = [
     "pagto_com_cartao" => "Pagamento com cartão de crédito",
     "outra_despesa" => "Outra despesa",
 
-    "receita" => "Receita",
+    "receitas" => "Receita",
 
     "pagamento_fatura" => "Pagamento de fatura",
     "emprestimo_do_cartao" => "Empréstimo do cartão",
@@ -39,4 +39,16 @@ function select_contas($dbh, $uid, $tipo) {
     
     return $options;
 }
+
+function insert_transacao($dbh, $uid, $data, $nome, $valor, $dr_id, $cr_id) {
+    $insert_sql = $dbh->prepare("insert into transacoes (dono, data, nome, valor, dr, cr) values (:uid, :data, :nome, :valor, :dr, :cr)");
+    
+    $insert_sql->execute([":uid" => $uid,
+                          ":data" => $data,
+                          ":nome" => $nome,
+                          ":valor" => $valor,
+                          ":dr" => $dr_id,
+                          ":cr" => $cr_id]);
+}
+
 ?>

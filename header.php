@@ -33,15 +33,13 @@ ob_start();  // needed for header('Location: ...') to work
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
 
-                    <!-- 
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Últimas transações</a>
+                        <a class="nav-link" href="nova_conta.php">Nova conta</a>
                     </li>
-                    -->
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Gerenciar contas
+                            Resumo de contas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownContas">
                             <a class="dropdown-item" href="tipo_de_conta.php?t=bens">Bens</a>
@@ -65,7 +63,7 @@ ob_start();  // needed for header('Location: ...') to work
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="nova_transacao.php?dr=bens&cr=receita&t=receita">Receita</a>
+                        <a class="nav-link" href="nova_transacao.php?dr=bens&cr=receitas&t=receitas">Receita</a>
                     </li>
 
 

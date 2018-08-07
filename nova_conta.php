@@ -18,8 +18,10 @@ if (isset($_GET['t'])) {
             <td>
                 <input name="nome" id="nome" autofocus>
                 <input name="tipo" value="<?= $tipo ?>" type="hidden">
-                <input name="redir" value="nova_conta" type="hidden">
+                <input name="redir" value="<?= $_GET['redir'] ?? "nova_conta" ?>" type="hidden">
                 <input name="q" value="?t=<?= $tipo ?>" type="hidden">
+                <input name="dr" value="<?= $_GET['dr'] ?? "tudo" ?>" type="hidden">
+                <input name="cr" value="<?= $_GET['cr'] ?? "tudo" ?>" type="hidden">
             </td>
         </tr>
 

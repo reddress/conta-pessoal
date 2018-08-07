@@ -40,7 +40,7 @@ if (isset($_GET['t'])) {
                 </select>
             </td>
             <td>
-                <a href="nova_conta.php?t=<?= $cr ?>">(criar conta)</a>
+                <a href="nova_conta.php?redir=nova_transacao&tt=<?= $tipo ?>&dr=<?= $dr ?>&cr=<?= $cr ?>&t=<?= $cr ?>">(nova conta)</a>
             </td>
         </tr>
         
@@ -54,7 +54,7 @@ if (isset($_GET['t'])) {
                 </select>
             </td>
             <td>
-                <a href="nova_conta.php?t=<?= $dr ?>">(criar conta)</a>
+                <a href="nova_conta.php?redir=nova_transacao&tt=<?= $tipo ?>&dr=<?= $dr ?>&cr=<?= $cr ?>&t=<?= $dr ?>">(nova conta)</a>
             </td>
         </tr>
         
