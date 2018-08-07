@@ -4,6 +4,13 @@ include('header.php');
 
 if (isset($_GET['t'])) {
     $tipo = $_GET['t'];
+
+    // prioritize GET variable, else set to go back to this page
+    if (isset($_GET['redir'])) {
+        $redir = $_GET['redir'];
+    } else {
+        $redir = urlencode("nova_conta.php?t=$tipo");
+    } 
 ?>
 
     <h1><a href="nova_conta.php">Nova conta</a> de <a href="tipo_de_conta.php?t=<?= $tipo ?>"><?= $tipo ?></a></h1>
@@ -18,10 +25,8 @@ if (isset($_GET['t'])) {
             <td>
                 <input name="nome" id="nome" autofocus>
                 <input name="tipo" value="<?= $tipo ?>" type="hidden">
-                <input name="redir" value="<?= $_GET['redir'] ?? "nova_conta" ?>" type="hidden">
-                <input name="q" value="?t=<?= $tipo ?>" type="hidden">
-                <input name="dr" value="<?= $_GET['dr'] ?? "tudo" ?>" type="hidden">
-                <input name="cr" value="<?= $_GET['cr'] ?? "tudo" ?>" type="hidden">
+                <input name="redir" value="<?= $redir ?>" type="hidden">
+                <input name="redirect_nome" value="<?= $_GET['redirect_nome'] ?? "última página" ?>" type="hidden">
             </td>
         </tr>
 

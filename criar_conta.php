@@ -49,25 +49,21 @@ try {
                               ":nome" => $nome,
                               ":orcamento" => $orcamento]);
 
-        if (isset($_POST['redir'])) {
+        if (isset($_GET['redir'])) {
+            $redirect = $_GET['redir'];
+        } else if (isset($_POST['redir'])) {
             $redirect = $_POST['redir'];
         } else {
-            $redirect = "index";
+            $redirect = "index.php";
         }
 
-        if (isset($_POST['q'])) {
-            $q = $_POST['q'];
-        } else {
-            $redirect = "";
-        }
+        $redirect_nome = $_POST['redirect_nome'] ?? "última página"; 
 
-        $dr = $_POST['dr'];
-        $cr = $_POST['cr'];
 ?>
 
 <h3>Conta <?= $nome ?> criada.</h3>
 
-<h3><a href="<?= $redirect ?>.php<?= $q ?>&dr=<?= $dr ?>&cr=<?= $cr ?>">Voltar a <?= $redirect ?></a></h3>
+<h3><a href="<?= urldecode($redirect) ?>">Voltar a <?= $redirect_nome ?></a></h3>
 
     <?php
     } else {

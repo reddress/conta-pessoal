@@ -1,6 +1,7 @@
-[  ] take sql and execute in criar_transacao into a function
-
-[  ] auto create basic accounts on signup:
+[ok] auto login after creating account
+[ok] check cookies
+[ok] take sql and execute in criar_transacao into a function
+[ok] auto create basic accounts on signup:
        Outros bens
        Outras despesas
        Outras receitas
@@ -10,5 +11,3 @@
        Outros ajustes
        Contas apagadas
 
-[ok] auto login after creating account
-[ok] check cookies

@@ -36,11 +36,12 @@ if (isset($_GET['t'])) {
             </td>
             <td>
                 <select name="cr" id="cr" class="form-control" autofocus>
+                    <option value="-1"><?= $cr ?></option>
                     <?= select_contas($dbh, $_SESSION['uid'], $cr) ?>
                 </select>
             </td>
             <td>
-                <a href="nova_conta.php?redir=nova_transacao&tt=<?= $tipo ?>&dr=<?= $dr ?>&cr=<?= $cr ?>&t=<?= $cr ?>">(nova conta)</a>
+                <a href="nova_conta.php?t=<?= $cr ?>&redir=<?= urlencode("nova_transacao.php?t=$tipo&cr=$cr&dr=$dr&redirect_nome=nova_transacao") ?>">(nova conta)</a>
             </td>
         </tr>
         
@@ -50,11 +51,12 @@ if (isset($_GET['t'])) {
             </td>
             <td>
                 <select name="dr" id="dr" class="form-control">
+                    <option value="-1"><?= $dr ?></option>
                     <?= select_contas($dbh, $_SESSION['uid'], $dr) ?>
                 </select>
             </td>
             <td>
-                <a href="nova_conta.php?redir=nova_transacao&tt=<?= $tipo ?>&dr=<?= $dr ?>&cr=<?= $cr ?>&t=<?= $dr ?>">(nova conta)</a>
+                <a href="nova_conta.php?t=<?= $dr ?>&redir=<?= urlencode("nova_transacao.php?t=$tipo&cr=$cr&dr=$dr&redirect_nome=nova_transacao") ?>">(nova conta)</a>
             </td>
         </tr>
         

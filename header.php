@@ -56,8 +56,8 @@ ob_start();  // needed for header('Location: ...') to work
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownDespesas">
                             <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=bens&t=pagto_a_vista">Pagamento à vista</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=despesa&cr=credito&t=pagto_com_cartao">Pagamento com cartão de crédito</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=despesa&cr=tudo&t=outra_despesa">Outra despesa</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=credito&t=pagto_com_cartao">Pagamento com cartão de crédito</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=tudo&t=outra_despesa">Outra despesa</a>
                         </div>
                     </li>
 

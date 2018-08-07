@@ -14,12 +14,18 @@ try {
         $errors .= 'Para conta não deve estar em branco.<br>';
     } else {
         $dr_id = $_POST['dr'];
+        if ((int) $dr_id == -1) {
+            $errors .= 'Escolha uma opção de "Para conta".<br>';
+        }
     }        
 
     if (!isset($_POST['cr'])) {
         $errors .= 'De conta não deve estar em branco.<br>';
     } else {
         $cr_id = $_POST['cr'];
+        if ((int) $cr_id == -1) {
+            $errors .= 'Escolha uma opção de "De conta".<br>';
+        }
     }
 
     $nome = $_POST['nome'];
