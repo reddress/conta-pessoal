@@ -2,7 +2,6 @@ Cabra
 
 Páginas:
 
-[  ] editar_transacao.php?id=123&dr=M&cr=N: editar transacao
 [  ] exec_editar_transacao.php
 [  ] confirmar_excluir_transacao.php?id=123: Sim/Não hidden id
 [  ] excluir_transacao.php: (POST) excluir somente a transacao
@@ -63,6 +62,7 @@ Concluídas:
        "tipos de conta". TIPO é uma variável com o nome da transacao
        data, nome, valor, dr, cr
 [ok] criar_transacao.php: exec
+[ok] editar_transacao.php?id=123&dr=M&cr=N: editar transacao
 
 
 == Modelos ==

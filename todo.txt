@@ -1,3 +1,6 @@
+[  ] transaction list ?start=N skips N transactions (simple pagination)
+       number per page is a global variable
+
 [ok] auto login after creating account
 [ok] check cookies
 [ok] take sql and execute in criar_transacao into a function
