@@ -1,15 +1,4 @@
-Cabra
-
 Páginas:
-
-[  ] exec_editar_transacao.php
-[  ] confirmar_excluir_transacao.php?id=123: Sim/Não hidden id
-[  ] excluir_transacao.php: (POST) excluir somente a transacao
-
-[  ] transacao.php?id=123: detalhes de uma transacao, editar, excluir
-
-[  ] conta.php?id=123: saldo, link a extrato,
-       lista de transacoes (paginar)
 
 [  ] index.php: login.php ou exibir sumario se houver
        cookie ou sessao. Saldo de bens, credito, e ajustes
@@ -63,28 +52,11 @@ Concluídas:
        data, nome, valor, dr, cr
 [ok] criar_transacao.php: exec
 [ok] editar_transacao.php?id=123&dr=M&cr=N: editar transacao
+[ok] exec_editar_transacao.php
+[ok] confirmar_excluir_transacao.php?id=123: Sim/Não hidden id
+[ok] excluir_transacao.php: (POST) excluir somente a transacao
 
+[--] transacao.php?id=123: detalhes de uma transacao, editar, excluir
 
-== Modelos ==
-
-usuarios:
-  nome (Char)
-  hash (Char(255))  
- 
-
-contas: tipos = ["Bens", "Despesas", "Receitas", "Crédito", "Ajustes"]
-  dono (FK) usuario
-  tipo (Char) Um de "Bens", "Despesas", "Receitas", "Crédito", ou "Ajustes"
-  sinal (Integer) 1 ou -1. "Bens" e "Despesas" são 1, o resto é -1
-  nome (Char)
-  orcamento (Integer)
-
-  
-transacoes:
-  dono (FK) usuario
-  data (Date)
-  nome (Char) descrição
-  valor (Integer) em centavos
-  dr (FK) conta de débito 
-  cr (FK) conta de crédito
-  
+[ok] conta.php?id=123: saldo, link a extrato,
+       lista de transacoes (paginar)

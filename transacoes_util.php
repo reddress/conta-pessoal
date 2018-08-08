@@ -1,4 +1,5 @@
 <?php
+require("dbhost.php");
 
 $TR_NOMES = [
     "geral" => "Geral",
@@ -75,6 +76,16 @@ function insert_transacao($dbh, $uid, $data, $nome, $valor, $dr_id, $cr_id) {
                           ":valor" => $valor,
                           ":dr" => $dr_id,
                           ":cr" => $cr_id]);
+}
+
+function delete_transacao($dbh, $uid, $tr_id) {
+    try {
+        $delete_sql = $dbh->prepare("delete from transacoes where dono = :uid and id = :tr_id");
+        $delete_sql->execute([":uid" => $uid,
+                              ":tr_id" => $tr_id]);
+    } catch (PDOException $e) {
+        die($e->getMessage());
+    }
 }
 
 ?>

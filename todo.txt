@@ -1,3 +1,5 @@
+[  ] Selenium user session test
+[  ] Paginate transactions list
 [  ] transaction list ?start=N skips N transactions (simple pagination)
        number per page is a global variable
 

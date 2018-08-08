@@ -80,7 +80,7 @@ order by data desc, valor desc");
                 <?php
                     }
                 ?>
-                <td><a href="editar_transacao.php?id=<?= $row['id'] ?>&redir=<?= urlencode("conta.php?id=" . $conta_id) ?>">(editar)</a></td>
+                <td><a href="editar_transacao.php?id=<?= $row['id'] ?>&redir=<?= urlencode("conta.php?id=" . $conta_id) ?>">editar/excluir</a></td>
             </tr>
             
         <?php

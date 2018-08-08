@@ -25,9 +25,11 @@ $cr_atual = $tr_row['cr'];
 $date_obj = date_create_from_format("Y-m-d", $data_atual);
 $data_dmy = date_format($date_obj, "d/m/Y");
 
+$tr_id = $_GET['id'];
 ?>
 
 <h1>Editar transação <?= $nome_atual ?></h1>
+<h3><a href="confirmar_excluir_transacao.php?id=<?= $tr_id ?>&redir=<?= urlencode($redir) ?>">Excluir transação</a></h3>
 
 <form action="exec_editar_transacao.php" method="POST">
     <table class="table-sm">
