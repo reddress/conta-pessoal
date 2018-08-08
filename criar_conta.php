@@ -57,7 +57,7 @@ try {
             $redirect = "index.php";
         }
 
-        $redirect_nome = $_POST['redirect_nome'] ?? "última página"; 
+        $redirect_nome = $_POST['redirect_nome'] ?? "página anterior"; 
 
 ?>
 

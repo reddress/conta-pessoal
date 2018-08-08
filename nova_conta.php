@@ -4,13 +4,19 @@ include('header.php');
 
 if (isset($_GET['t'])) {
     $tipo = $_GET['t'];
+} else {
+    $tipo = "tudo";
+}
 
-    // prioritize GET variable, else set to go back to this page
-    if (isset($_GET['redir'])) {
-        $redir = $_GET['redir'];
-    } else {
-        $redir = urlencode("nova_conta.php?t=$tipo");
-    } 
+// prioritize GET variable, else set to go back to this page
+if (isset($_GET['redir'])) {
+    $redir = $_GET['redir'];
+} else {
+    $redir = urlencode("nova_conta.php?t=$tipo");
+}
+
+if ($tipo != "tudo") {
+    
 ?>
 
     <h1><a href="nova_conta.php">Nova conta</a> de <a href="tipo_de_conta.php?t=<?= $tipo ?>"><?= $tipo ?></a></h1>
@@ -26,7 +32,7 @@ if (isset($_GET['t'])) {
                 <input name="nome" id="nome" autofocus>
                 <input name="tipo" value="<?= $tipo ?>" type="hidden">
                 <input name="redir" value="<?= $redir ?>" type="hidden">
-                <input name="redirect_nome" value="<?= $_GET['redirect_nome'] ?? "última página" ?>" type="hidden">
+                <input name="redirect_nome" value="<?= $_GET['redirect_nome'] ?? "página anterior" ?>" type="hidden">
             </td>
         </tr>
 
@@ -76,15 +82,22 @@ if (isset($_GET['t'])) {
 
 <?php
 } else {
+
+    if (isset($_GET['redir'])) {
+        $redir = urlencode($_GET['redir']);
+    } else {
+        $redir = "nova_conta.php";
+    }
+
 ?>
     <h1>Nova conta</h1>
     <br>
     
-    <a href="nova_conta.php?t=bens">Bens</a><br><br>
-    <a href="nova_conta.php?t=despesas">Despesas</a><br><br>
-    <a href="nova_conta.php?t=receitas">Receitas</a><br><br>
-    <a href="nova_conta.php?t=credito">Crédito</a><br><br>
-    <a href="nova_conta.php?t=ajustes">Ajustes</a><br><br>
+    <a href="nova_conta.php?t=bens&redir=<?= $redir ?>">Bens</a><br><br>
+    <a href="nova_conta.php?t=despesas&redir=<?= $redir ?>">Despesas</a><br><br>
+    <a href="nova_conta.php?t=receitas&redir=<?= $redir ?>">Receitas</a><br><br>
+    <a href="nova_conta.php?t=credito&redir=<?= $redir ?>">Crédito</a><br><br>
+    <a href="nova_conta.php?t=ajustes&redir=<?= $redir ?>">Ajustes</a><br><br>
     
 <?php
 }

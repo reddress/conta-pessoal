@@ -66,4 +66,15 @@ function delete_conta($dbh, $uid, $conta_id) {
         die($e->getMessage());
     }
 }
+
+function contas_links($dbh, $uid) {
+    $query_sql = $dbh->prepare("select id, nome from contas where dono = :uid");
+    $query_sql->execute([":uid" => $_SESSION['uid']]);
+
+    $out = "";
+    foreach ($query_sql as $row) {
+        $out .= "<a href=\"conta.php?id={$row['id']}\">{$row['nome']}</a><br><br>";
+    }
+    return $out;
+}
 ?>

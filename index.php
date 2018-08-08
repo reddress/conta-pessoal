@@ -1,6 +1,7 @@
 <?php
 include("header.php");
 require("login_util.php");
+require("contas_util.php");
 ?>
 
 <h1>Cabra</h1>
@@ -47,8 +48,12 @@ require("login_util.php");
 
 <?php } else { ?>
     Bem-vindo(a) <?= $username ?>
-    SHOW SUMMARY
-<?php } ?>
+    <hr>
+
+    <?= contas_links($dbh, $_SESSION['uid']); ?>
+<?php
+}
+?>
     
 <?php
 include("footer.php");

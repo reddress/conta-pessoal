@@ -5,11 +5,7 @@ include('constants.php');
 include('dbhost.php');
 include('transacoes_util.php');
 
-if (isset($_GET['t'])) {
-    $tipo = $_GET['t'];
-} else {
-    $tipo = "";
-}
+$redir = $_GET['redir'] ?? "index.php";
 
 $query_sql = $dbh->prepare("select data, nome, valor, dr, cr from transacoes where dono = :uid and id = :id");
 $query_sql->execute([":uid" => $_SESSION['uid'],
@@ -25,6 +21,9 @@ $nome_atual = $tr_row['nome'];
 $valor_atual = $tr_row['valor'];
 $dr_atual = $tr_row['dr'];
 $cr_atual = $tr_row['cr'];
+
+$date_obj = date_create_from_format("Y-m-d", $data_atual);
+$data_dmy = date_format($date_obj, "d/m/Y");
 
 ?>
 
@@ -80,8 +79,9 @@ $cr_atual = $tr_row['cr'];
                 <label for="data">Data</label>
             </td>
             <td>
-                <input name="data" id="data" value="<?= $data_atual ?>">
+                <input name="data" id="data" value="<?= $data_dmy ?>">
                 <input name="tr_id" value="<?= $_GET['id'] ?>" type="hidden">
+                <input name="redir" value="<?= $_GET['redir'] ?>" type="hidden">
             </td>
         </tr>
         
@@ -98,5 +98,5 @@ $cr_atual = $tr_row['cr'];
 </form>
 
 <?php
-include('footer.php');
+include('data_footer.php');
 ?>
