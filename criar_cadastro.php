@@ -46,9 +46,7 @@ try {
         insert_conta($dbh, $uid, "despesas", 1, "Outras despesas", 0);
         insert_conta($dbh, $uid, "receitas", -1, "Outras receitas", 0);
         insert_conta($dbh, $uid, "credito", -1, "Empréstimos em dinheiro", 0);
-        insert_conta($dbh, $uid, "ajustes", -1, "Ajuste de bens", 0);
-        insert_conta($dbh, $uid, "ajustes", -1, "Ajuste de cartões", 0);
-        insert_conta($dbh, $uid, "ajustes", -1, "Outros ajustes", 0);
+        insert_conta($dbh, $uid, "ajustes", -1, "Ajustes", 0);
         insert_conta($dbh, $uid, "ajustes", -1, "Contas apagadas", 0);        
 
         header('Location: index.php');

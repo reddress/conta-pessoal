@@ -13,6 +13,7 @@ ob_start();  // needed for header('Location: ...') to work
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/picka/default.css">
         <link rel="stylesheet" href="css/picka/default.date.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <nav class="navbar navbar-light bg-light">
@@ -33,14 +34,9 @@ ob_start();  // needed for header('Location: ...') to work
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="nova_transacao.php?dr=tudo&cr=tudo&t=geral">Transação (geral)</a>
-                    </li>
-
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Resumo de contas
+                            Saldos e Contas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownContas">
                             <a class="dropdown-item" href="nova_conta.php">Nova conta</a>
@@ -101,7 +97,7 @@ ob_start();  // needed for header('Location: ...') to work
                             <a class="dropdown-item" href="ajuste.php?t=bens">Ajustar saldo de bens</a>
                             <a class="dropdown-item" href="ajuste.php?t=credito">Ajustar saldo de cartão</a>
                             <a class="dropdown-item" href="ajuste.php?t=outros">Outro ajuste</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=tudo&cr=tudo&t=geral">Transação (geral)</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=tudo&cr=tudo&t=geral">Nova transação (geral)</a>
                         </div>
                     </li>
 

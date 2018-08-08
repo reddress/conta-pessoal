@@ -27,7 +27,7 @@ sinal int,
 nome varchar(63),
 orcamento decimal(13,2),
 constraint pk_conta_id primary key (id),
-constraint u_nome unique (nome),
+constraint u_nome unique (dono, nome),
 constraint fk_conta_usuario foreign key (dono)
   references usuarios (id)) engine=InnoDB");
         echo("Tabela de contas criada<br><br>");

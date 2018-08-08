@@ -1,7 +1,13 @@
-[  ] Selenium user session test
+[  ] contas_util.php: transactions(dbh, uid, from, to)
+     
+[  ] conta.php: dates "from" and "to"
+[  ] tipo_de_conta.php: select all transactions,
+       then sum for "all time" and "this month"
 [  ] Paginate transactions list
 [  ] transaction list ?start=N skips N transactions (simple pagination)
        number per page is a global variable
+
+[ok] contas_util.php: balance(dbh, uid, conta, transactions)
 
 [ok] auto login after creating account
 [ok] check cookies
@@ -15,4 +21,3 @@
        Ajuste de cartões
        Outros ajustes
        Contas apagadas
-

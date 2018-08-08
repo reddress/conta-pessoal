@@ -2,15 +2,18 @@
 include('boot_guest.php');
 include('header.php');
 include('dbhost.php');
+require('contas_util.php');
+require('formatters.php');
 
 if (isset($_GET['id'])) {
     $conta_id = $_GET['id'];
 
-    $query_sql = $dbh->prepare("select nome from contas where id = :id");
+    $query_sql = $dbh->prepare("select nome, sinal from contas where id = :id");
     $query_sql->execute([":id" => $conta_id]);
     $query_row = $query_sql->fetch();
 
     $conta_nome = $query_row['nome'];
+    $conta_sinal = $query_row['sinal'];
 ?>
 
 <?php
@@ -38,45 +41,30 @@ if ($tipo == "despesas") {
     echo("Limite: $orcamento");
 }
 
-?>
+$trs_rows = fetch_all_conta_transactions($dbh, $_SESSION['uid'], $conta_id);
 
+?>
+    <h3>Saldo: <?= balance($conta_id, $conta_sinal, $trs_rows) ?> <a href="ajuste.php?id=<?= $conta_id ?>">(ajustar)</a></h3>
+    
     <table>
         
         <?php
-        // select debits
-        $debits_sql = $dbh->prepare(
-            "select
-t.id as id,
-date_format(t.data, '%d/%m/%Y') as data,
-t.nome as nome,
-valor,
-c.nome as cr_nome,
-d.nome as dr_nome
-from transacoes t
-inner join contas c on c.id = t.cr
-inner join contas d on d.id = t.dr
-where t.dono = :uid and
-(dr = :dr_id or cr = :cr_id)
-order by data desc, valor desc");
-        $debits_sql->execute([":uid" => $_SESSION['uid'],
-                              ":cr_id" => $conta_id,
-                              ":dr_id" => $conta_id]);
         
-        foreach ($debits_sql as $row) {
+        foreach ($trs_rows as $row) {
         ?>
             <tr>
                 <td><?= $row['data'] ?></td>
                 <td><?= $row['nome'] ?></td>
                 <?php
-                if ($row['dr_nome'] == $conta_nome) {
+                    if ($row['dr_nome'] == $conta_nome) {
                 ?>
-                    <td class="text-right"><?= sprintf('%0.2f', (float) $row['valor']) ?></td>
-                    <td><?= $row['cr_nome'] ?></td>
+                    <td class="text-right"><?= red_black($row['valor']) ?></td>
+                    <td><a href="conta.php?id=<?= $row['cr'] ?>"><?= $row['cr_nome'] ?></a></td>
                 <?php
                     } else {
                 ?>
-                    <td class="text-right"><?= sprintf('%0.2f', -(float) $row['valor']) ?></td>
-                    <td><?= $row['dr_nome'] ?></td>
+                    <td class="text-right"><?= red_black(-$row['valor']) ?></td>
+                    <td><a href="conta.php?id=<?= $row['dr'] ?>"><?= $row['dr_nome'] ?></a></td>
                 <?php
                     }
                 ?>

@@ -1,23 +1,24 @@
 <?php
 include('boot_guest.php');
 include('header.php');
+require("transacoes_util.php");
+require("contas_util.php");
 
-$tipo = $_GET['t'];
+$conta_id = $_GET['id'];
 ?>
 
-<h1>Ajuste de <?= $tipo ?></h1>
+<h1>Ajuste de <?= conta_nome($dbh, $_SESSION['uid'], $conta_id) ?></h1>
 
 <form action="ajustar.php" method="POST">
     <table class="table-sm">
 
         <tr>
             <td>
-                <label for="conta">Conta</label>
+                <label for="valor">Novo valor</label>
             </td>
             <td>
-                <select name="conta" id="conta">
-                    
-                </select>
+                <input name="valor" id="valor" type="number" step="0.01" autofocus>
+                <input name="id" value="<?= $conta_id ?>" type="hidden">
             </td>
         </tr>
 

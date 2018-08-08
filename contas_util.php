@@ -77,4 +77,59 @@ function contas_links($dbh, $uid) {
     }
     return $out;
 }
+
+function balance($conta_id, $sinal, $trs) {
+    $bal = 0;
+    $sign = (int) $sinal;
+    foreach ($trs as $tr) {
+        if ($tr['dr'] == $conta_id) {
+            $bal += $sign * ((float) $tr['valor']);
+        }
+
+        if ($tr['cr'] == $conta_id) {
+            $bal -= $sign * ((float) $tr['valor']);
+        }
+    }
+    return sprintf('%0.2f', (float) $bal);
+}
+
+function sinal($dbh, $uid, $conta_id) {
+    $sql = $dbh->prepare("select sinal from contas where dono = :uid and id = :conta_id");
+    $sql->execute([":uid" => $uid,
+                   ":conta_id" => $conta_id]);
+    $row = $sql->fetch();
+    return (int) $row['sinal'];
+}
+
+function conta_nome($dbh, $uid, $conta_id) {
+    $sql = $dbh->prepare("select nome from contas where dono = :uid and id = :conta_id");
+    $sql->execute([":uid" => $uid,
+                   ":conta_id" => $conta_id]);
+    $row = $sql->fetch();
+    return $row['nome'];
+}
+
+function fetch_all_conta_transactions($dbh, $uid, $conta_id) {
+    $trs_sql = $dbh->prepare(
+        "select
+t.id as id,
+date_format(t.data, '%d/%m/%Y') as data,
+t.nome as nome,
+valor,
+cr,
+dr,
+c.nome as cr_nome,
+d.nome as dr_nome
+from transacoes t
+inner join contas c on c.id = t.cr
+inner join contas d on d.id = t.dr
+where t.dono = :uid and
+(dr = :dr_id or cr = :cr_id)
+order by data desc, id desc");
+    $trs_sql->execute([":uid" => $uid,
+                       ":cr_id" => $conta_id,
+                       ":dr_id" => $conta_id]);
+    return $trs_sql->fetchAll();
+}
+
 ?>
