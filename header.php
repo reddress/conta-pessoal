@@ -33,15 +33,17 @@ ob_start();  // needed for header('Location: ...') to work
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="nova_conta.php">Nova conta</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nova_transacao.php?dr=tudo&cr=tudo&t=geral">Transação (geral)</a>
                     </li>
-                    
+
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Resumo de contas
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownContas">
+                            <a class="dropdown-item" href="nova_conta.php">Nova conta</a>
                             <a class="dropdown-item" href="tipo_de_conta.php?t=bens">Bens</a>
                             <a class="dropdown-item" href="tipo_de_conta.php?t=despesas">Despesas</a>
                             <a class="dropdown-item" href="tipo_de_conta.php?t=receitas">Receitas</a>
@@ -58,6 +60,8 @@ ob_start();  // needed for header('Location: ...') to work
                             <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=bens&t=pagto_a_vista">Pagamento à vista</a>
                             <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=credito&t=pagto_com_cartao">Pagamento com cartão de crédito</a>
                             <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=tudo&t=outra_despesa">Outra despesa</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=despesas&t=reemb_a_vista">Reembolso à vista</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=despesas&t=reemb_no_cartao">Reembolso no cartão</a>
                         </div>
                     </li>
 
@@ -88,17 +92,7 @@ ob_start();  // needed for header('Location: ...') to work
                         </div>
                     </li>
 
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReembolsos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Reembolsos
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownReembolsos">
-                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=despesas&t=reemb_a_vista">Reembolso à vista</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=despesas&t=reemb_no_cartao">Reembolso no cartão</a>
-                        </div>
-                    </li>
-
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAjustes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ajustes
@@ -107,6 +101,7 @@ ob_start();  // needed for header('Location: ...') to work
                             <a class="dropdown-item" href="ajuste.php?t=bens">Ajustar saldo de bens</a>
                             <a class="dropdown-item" href="ajuste.php?t=credito">Ajustar saldo de cartão</a>
                             <a class="dropdown-item" href="ajuste.php?t=outros">Outro ajuste</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=tudo&cr=tudo&t=geral">Transação (geral)</a>
                         </div>
                     </li>
 
@@ -114,7 +109,7 @@ ob_start();  // needed for header('Location: ...') to work
                     if (isset($_SESSION['uid'])) {
                     ?>
                         
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="nova_senha.php">Mudar senha</a>
                     </li>
 
@@ -122,7 +117,7 @@ ob_start();  // needed for header('Location: ...') to work
                     }
                     ?>
 
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="fazer_logout.php">Logout</a>
                     </li>
 

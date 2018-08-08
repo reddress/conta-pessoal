@@ -40,6 +40,32 @@ function select_contas($dbh, $uid, $tipo) {
     return $options;
 }
 
+
+function select_contas_with_selected($dbh, $uid, $tipo, $selected_id) {
+    // copy of select_contas
+    
+    if ($tipo == "tudo") {
+        $select_sql = $dbh->prepare("select id, nome from contas where dono = :uid order by nome");
+        $select_sql->execute([":uid" => $uid]);
+    } else {
+        $select_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = :tipo order by nome");
+        $select_sql->execute([":uid" => $uid,
+                               ":tipo" => $tipo]);
+    }
+    $options = "";
+    foreach ($select_sql as $row) {
+        if ($row['id'] == $selected_id) {
+            $selected = " selected";
+        } else {
+            $selected = "";
+        }
+        $options .= "<option value=\"{$row['id']}\"$selected>{$row['nome']}</option>\n";
+    }
+    
+    return $options;
+}
+
+
 function insert_transacao($dbh, $uid, $data, $nome, $valor, $dr_id, $cr_id) {
     $insert_sql = $dbh->prepare("insert into transacoes (dono, data, nome, valor, dr, cr) values (:uid, :data, :nome, :valor, :dr, :cr)");
     

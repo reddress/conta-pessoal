@@ -37,9 +37,57 @@ if ($tipo == "despesas") {
 } else if ($tipo == "credito") {
     echo("Limite: $orcamento");
 }
+
 ?>
 
-LIST/TABLE PAGINATE TRANSACTIONS
+    <table>
+        
+        <?php
+        // select debits
+        $debits_sql = $dbh->prepare(
+            "select
+t.id as id,
+date_format(t.data, '%d/%m/%Y') as data,
+t.nome as nome,
+valor,
+c.nome as cr_nome,
+d.nome as dr_nome
+from transacoes t
+inner join contas c on c.id = t.cr
+inner join contas d on d.id = t.dr
+where t.dono = :uid and
+(dr = :dr_id or cr = :cr_id)
+order by data desc, valor desc");
+        $debits_sql->execute([":uid" => $_SESSION['uid'],
+                              ":cr_id" => $conta_id,
+                              ":dr_id" => $conta_id]);
+        
+        foreach ($debits_sql as $row) {
+        ?>
+            <tr>
+                <td><?= $row['data'] ?></td>
+                <td><?= $row['nome'] ?></td>
+                <?php
+                if ($row['dr_nome'] == $conta_nome) {
+                ?>
+                    <td class="text-right"><?= sprintf('%0.2f', (float) $row['valor']) ?></td>
+                    <td><?= $row['cr_nome'] ?></td>
+                <?php
+                    } else {
+                ?>
+                    <td class="text-right"><?= sprintf('%0.2f', -(float) $row['valor']) ?></td>
+                    <td><?= $row['dr_nome'] ?></td>
+                <?php
+                    }
+                ?>
+                <td><a href="editar_transacao.php?id=<?= $row['id'] ?>">(editar)</a></td>
+            </tr>
+            
+        <?php
+        }
+        ?>
+        
+    </table>
 
 <?php
 } else {

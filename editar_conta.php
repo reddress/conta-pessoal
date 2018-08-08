@@ -10,8 +10,9 @@ if (isset($_GET['t'])) {
     $tipo = "";
 }
 
-$query_sql = $dbh->prepare("select nome from contas where id = :id");
-$query_sql->execute([":id" => $_GET['id']]);
+$query_sql = $dbh->prepare("select nome from contas where dono = :uid and id = :id");
+$query_sql->execute([":uid" => $_SESSION['uid'],
+                     ":id" => $_GET['id']]);
 $conta_nome_row = $query_sql->fetch();
 
 $nome_atual = $conta_nome_row['nome'];
@@ -77,9 +78,16 @@ $nome_atual = $conta_nome_row['nome'];
         }
         ?>
 
-    </table>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                <input type="submit" value="Enviar">
+            </td>
+        </tr>
 
-    <input type="submit" value="Enviar">
+    </table>
 </form>
 
 <?php
