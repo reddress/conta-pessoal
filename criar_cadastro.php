@@ -43,6 +43,7 @@ try {
 
         // criar contas padroes
         insert_conta($dbh, $uid, "bens", 1, "Outros bens", 0);
+        insert_conta($dbh, $uid, "despesas", 1, "Juros de cartões", 0);
         insert_conta($dbh, $uid, "despesas", 1, "Outras despesas", 0);
         insert_conta($dbh, $uid, "receitas", -1, "Outras receitas", 0);
         insert_conta($dbh, $uid, "credito", -1, "Empréstimos em dinheiro", 0);

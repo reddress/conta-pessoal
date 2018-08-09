@@ -1,3 +1,5 @@
+[  ] busca.php, conta.php: table header
+[  ] busca.php: paginate results or limit to one year
 [  ] contas_util.php: transactions(dbh, uid, from, to)
      
 [  ] conta.php: dates "from" and "to"

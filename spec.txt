@@ -1,7 +1,5 @@
 Páginas:
 
-[  ] busca.php?q=ABC: navbar busca
-
 [  ] extrato.php?conta=123&a=2018-01-01&b=2018-07-15: transacoes between
        dates a and b
 
@@ -10,6 +8,8 @@ Concluídas:
 [ok] index.php: login.php ou exibir sumario se houver
        cookie ou sessao. Saldo de bens, credito, e ajustes
        (todas transacoes) e despesas e receitas deste mes
+
+[ok] busca.php?q=ABC: navbar busca
 
 == usuarios ==
 [ok] cadastro.php: nome de usuario, senha

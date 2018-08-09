@@ -21,8 +21,8 @@ ob_start();  // needed for header('Location: ...') to work
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Busca" aria-label="Busca">
+            <form action="busca.php" method="GET" class="form-inline my-2 my-lg-0">
+                <input name="q" class="form-control mr-sm-2" type="search" placeholder="Busca" aria-label="Busca">
             </form>
 
             <a class="navbar-brand" href="index.php">Cabra</a>
