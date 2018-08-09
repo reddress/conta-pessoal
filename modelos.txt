@@ -21,3 +21,19 @@ transacoes:
   dr (FK) conta de débito 
   cr (FK) conta de crédito
   
+
+Transaction types
+
+desp bens a vista
+desp cred cartao
+bens desp reemb a vista
+cred desp reemb cartao
+
+rect bens receita
+
+cred bens pagto fatura
+bens cred emprest
+
+bens bens transf
+cred cred transf
+

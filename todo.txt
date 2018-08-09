@@ -1,3 +1,4 @@
+[  ] conta balances should have a link to new transaction
 [  ] busca.php, conta.php: table header
 [  ] busca.php: paginate results or limit to one year
 [  ] contas_util.php: transactions(dbh, uid, from, to)
