@@ -3,11 +3,13 @@ include('boot_guest.php');
 include('header.php');
 require("transacoes_util.php");
 require("contas_util.php");
+require("formatters.php");
 
 $conta_id = $_GET['id'];
 ?>
 
 <h1>Ajuste de <?= conta_nome($dbh, $_SESSION['uid'], $conta_id) ?></h1>
+<h3>Saldo atual: <?= red_black(balance_all_time($dbh, $_SESSION['uid'], $conta_id)) ?></h3>
 
 <form action="ajustar.php" method="POST">
     <table class="table-sm">

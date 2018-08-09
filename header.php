@@ -85,18 +85,6 @@ ob_start();  // needed for header('Location: ...') to work
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownTransferencias">
                             <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=bens&t=tr_bens">Transferência entre bens</a>
                             <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=credito&t=tr_cartoes">Transferência entre cartões</a>
-                        </div>
-                    </li>
-
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAjustes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ajustes
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownAjustes">
-                            <a class="dropdown-item" href="ajuste.php?t=bens">Ajustar saldo de bens</a>
-                            <a class="dropdown-item" href="ajuste.php?t=credito">Ajustar saldo de cartão</a>
-                            <a class="dropdown-item" href="ajuste.php?t=outros">Outro ajuste</a>
                             <a class="dropdown-item" href="nova_transacao.php?dr=tudo&cr=tudo&t=geral">Nova transação (geral)</a>
                         </div>
                     </li>

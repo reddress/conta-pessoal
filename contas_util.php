@@ -132,4 +132,25 @@ order by data desc, id desc");
     return $trs_sql->fetchAll();
 }
 
+function balance_all_time($dbh, $uid, $conta_id) {
+    $debits_sql = $dbh->prepare("select
+sum(t.valor) * c.sinal as total from contas c
+inner join transacoes t on c.id = t.dr
+where t.dono = :uid and c.id = :conta_id");
+    $debits_sql->execute([":uid" => $uid,
+                         ":conta_id" => $conta_id]);
+    $debits_row = $debits_sql->fetch();
+    $debits_total = (float) $debits_row['total'];
+    
+    $credits_sql = $dbh->prepare("select
+sum(t.valor) * c.sinal as total from contas c
+inner join transacoes t on c.id = t.cr
+where t.dono = :uid and c.id = :conta_id");
+    $credits_sql->execute([":uid" => $uid,
+                           ":conta_id" => $conta_id]);
+    $credits_row = $credits_sql->fetch();
+    $credits_total = (float) $credits_row['total'];
+
+    return $debits_total - $credits_total;
+}
 ?>

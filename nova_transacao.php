@@ -41,7 +41,7 @@ if (isset($_GET['t'])) {
                 </select>
             </td>
             <td>
-                <a href="nova_conta.php?t=<?= $cr ?>&redir=<?= urlencode("nova_transacao.php?t=$tipo&cr=$cr&dr=$dr&redirect_nome=nova_transacao") ?>">(nova conta)</a>
+                <a href="nova_conta.php?t=<?= $cr ?>&redir=<?= urlencode("nova_transacao.php?t=$tipo&cr=$cr&dr=$dr&redirect_nome=nova_transacao") ?>" tabindex="101">(nova conta)</a>
             </td>
         </tr>
         
@@ -56,7 +56,7 @@ if (isset($_GET['t'])) {
                 </select>
             </td>
             <td>
-                <a href="nova_conta.php?t=<?= $dr ?>&redir=<?= urlencode("nova_transacao.php?t=$tipo&cr=$cr&dr=$dr&redirect_nome=nova_transacao") ?>">(nova conta)</a>
+                <a href="nova_conta.php?t=<?= $dr ?>&redir=<?= urlencode("nova_transacao.php?t=$tipo&cr=$cr&dr=$dr&redirect_nome=nova_transacao") ?>" tabindex="102">(nova conta)</a>
             </td>
         </tr>
         

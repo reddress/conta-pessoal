@@ -5,12 +5,6 @@ Páginas:
 [  ] extrato.php?conta=123&a=2018-01-01&b=2018-07-15: transacoes between
        dates a and b
 
-[  ] ajuste.php?t=N: N é um dos "tipos de conta". Gerar automaticamente
-       uma transacao para atualizar o saldo.
-       Usar conta "Ajustes gerais",
-       ver contas_util "get Contas apagadas or create it"
-[  ] ajustar.php: exec, criar uma transacao automaticamente
-
 Concluídas:
 
 [ok] index.php: login.php ou exibir sumario se houver
@@ -60,3 +54,10 @@ Concluídas:
 
 [ok] conta.php?id=123: saldo, link a extrato,
        lista de transacoes (paginar)
+
+== ajustes ==
+[ok] ajuste.php?t=N: N é um dos "tipos de conta". Gerar automaticamente
+       uma transacao para atualizar o saldo.
+       Usar conta "Ajustes gerais",
+       ver contas_util "get Contas apagadas or create it"
+[ok] ajustar.php: exec, criar uma transacao automaticamente
