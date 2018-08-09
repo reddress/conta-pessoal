@@ -73,7 +73,8 @@ function contas_links($dbh, $uid) {
 
     $out = "";
     foreach ($query_sql as $row) {
-        $out .= "<a href=\"conta.php?id={$row['id']}\">{$row['nome']}</a><br><br>";
+        $balance = sprintf("%0.2f", balance_all_time($dbh, $uid, $row['id']));
+        $out .= "<a href=\"conta.php?id={$row['id']}\">{$row['nome']}</a> $balance<br><br>";
     }
     return $out;
 }
@@ -136,7 +137,8 @@ function balance_all_time($dbh, $uid, $conta_id) {
     $debits_sql = $dbh->prepare("select
 sum(t.valor) * c.sinal as total from contas c
 inner join transacoes t on c.id = t.dr
-where t.dono = :uid and c.id = :conta_id");
+where t.dono = :uid and c.id = :conta_id
+group by c.id, c.sinal");
     $debits_sql->execute([":uid" => $uid,
                          ":conta_id" => $conta_id]);
     $debits_row = $debits_sql->fetch();
@@ -145,7 +147,8 @@ where t.dono = :uid and c.id = :conta_id");
     $credits_sql = $dbh->prepare("select
 sum(t.valor) * c.sinal as total from contas c
 inner join transacoes t on c.id = t.cr
-where t.dono = :uid and c.id = :conta_id");
+where t.dono = :uid and c.id = :conta_id
+group by c.id, c.sinal");
     $credits_sql->execute([":uid" => $uid,
                            ":conta_id" => $conta_id]);
     $credits_row = $credits_sql->fetch();

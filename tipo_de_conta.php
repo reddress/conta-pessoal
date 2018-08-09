@@ -2,6 +2,8 @@
 include('boot_guest.php');
 include('header.php');
 include('dbhost.php');
+require('contas_util.php');
+require('formatters.php');
 
 if (isset($_GET['t'])) {
     $tipo = $_GET['t'];
@@ -18,6 +20,7 @@ $query_sql->execute([":uid" => $_SESSION['uid'], ":tipo" => $tipo]);
 foreach($query_sql as $row) {
 ?>
     <a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a>
+    <?= red_black(balance_all_time($dbh, $_SESSION['uid'], $row['id'])) ?>
     <br><br>
 <?php
 }

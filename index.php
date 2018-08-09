@@ -2,6 +2,7 @@
 include("header.php");
 require("login_util.php");
 require("contas_util.php");
+require("formatters.php");
 ?>
 
 <h1>Cabra</h1>
