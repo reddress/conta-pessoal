@@ -1,3 +1,5 @@
+[  ] exec_editar_conta.php: sinal should be computed by tipo
+[  ] editar_conta.php: auto-select existing tipo
 [  ] busca.php, conta.php: table header
 [  ] busca.php: paginate results or limit to one year
 [  ] contas_util.php: date range in transactions(dbh, uid, from, to)
