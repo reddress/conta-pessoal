@@ -41,6 +41,18 @@ function select_contas($dbh, $uid, $tipo) {
     return $options;
 }
 
+function select_bens_credito($dbh, $uid) {
+    $select_sql = $dbh->prepare("select id, nome from contas where dono = :uid and (tipo = 'bens' or tipo = 'credito') order by nome");
+    $select_sql->execute([":uid" => $uid]);
+
+    $options = "";
+    foreach ($select_sql as $row) {
+        $options .= "<option value=\"{$row['id']}\">{$row['nome']}</option>\n";
+    }
+    
+    return $options;
+}
+
 
 function select_contas_with_selected($dbh, $uid, $tipo, $selected_id) {
     // copy of select_contas

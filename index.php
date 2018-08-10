@@ -5,9 +5,6 @@ require("contas_util.php");
 require("formatters.php");
 ?>
 
-<h1>Cabra</h1>
-
-<hr>
 <?php if ($username == "anônimo") { ?>
     <h3>Usuário novo? <a href="cadastro.php">Cadastre-se aqui</a></h3>
     <hr>
@@ -49,9 +46,12 @@ require("formatters.php");
 
 <?php } else { ?>
     Bem-vindo(a) <?= $username ?>
-    <hr>
+    <br><br>
+    <a class="btn btn-primary" href="nova_transacao.php?dr=bens&cr=receitas&t=receitas">Receita</a><br><br>
 
-    <?= contas_links($dbh, $_SESSION['uid']); ?>
+    <a class="btn btn-primary" href="tipo_de_conta.php?t=despesas">Despesas</a><br><br>
+
+    <a class="btn btn-primary" href="tipo_de_conta.php?t=bens">Bens</a><br><br>
 <?php
 }
 ?>

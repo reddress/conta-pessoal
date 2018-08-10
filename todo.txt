@@ -1,7 +1,6 @@
-[  ] conta balances should have a link to new transaction
 [  ] busca.php, conta.php: table header
 [  ] busca.php: paginate results or limit to one year
-[  ] contas_util.php: transactions(dbh, uid, from, to)
+[  ] contas_util.php: date range in transactions(dbh, uid, from, to)
      
 [  ] conta.php: dates "from" and "to"
 [  ] tipo_de_conta.php: select all transactions,
@@ -24,3 +23,4 @@
        Ajuste de cartões
        Outros ajustes
        Contas apagadas
+[ok] conta balances should have a link to new transaction

@@ -36,7 +36,7 @@ if (isset($_GET['t'])) {
             </td>
             <td>
                 <select name="cr" id="cr" class="form-control" autofocus>
-                    <option value="-1"><?= $cr ?></option>
+                    <option value="-1">Escolha uma conta</option>
                     <?= select_contas($dbh, $_SESSION['uid'], $cr) ?>
                 </select>
             </td>
@@ -51,7 +51,7 @@ if (isset($_GET['t'])) {
             </td>
             <td>
                 <select name="dr" id="dr" class="form-control">
-                    <option value="-1"><?= $dr ?></option>
+                    <option value="-1">Escolha uma conta</option>
                     <?= select_contas($dbh, $_SESSION['uid'], $dr) ?>
                 </select>
             </td>

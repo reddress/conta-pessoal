@@ -21,6 +21,15 @@ foreach($query_sql as $row) {
 ?>
     <a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a>
     <?= red_black(balance_all_time($dbh, $_SESSION['uid'], $row['id'])) ?>
+    <?php
+    if ($tipo == "despesas") {
+    ?>
+
+        <a class="btn btn-primary" href="nova_despesa.php?id=<?= $row['id'] ?>">Nova transação</a>
+        
+    <?php
+    }
+    ?>
     <br><br>
 <?php
 }
