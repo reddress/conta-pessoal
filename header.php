@@ -34,6 +34,14 @@ ob_start();  // needed for header('Location: ...') to work
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="tipo_de_conta.php?t=despesas">Nova despesa</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="nova_transacao.php?dr=bens&cr=receitas&t=receitas">Nova receita</a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownContas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Saldos e Contas
@@ -47,25 +55,6 @@ ob_start();  // needed for header('Location: ...') to work
                             <a class="dropdown-item" href="tipo_de_conta.php?t=ajustes">Ajustes</a>
                         </div>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDespesas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Despesas
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownDespesas">
-                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=bens&t=pagto_a_vista">Pagamento à vista</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=credito&t=pagto_com_cartao">Pagamento com cartão de crédito</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=tudo&t=outra_despesa">Outra despesa</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=despesas&t=reemb_a_vista">Reembolso à vista</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=despesas&t=reemb_no_cartao">Reembolso no cartão</a>
-                        </div>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="nova_transacao.php?dr=bens&cr=receitas&t=receitas">Receita</a>
-                    </li>
-
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCartoes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -93,6 +82,19 @@ ob_start();  // needed for header('Location: ...') to work
                     if (isset($_SESSION['uid'])) {
                     ?>
                         
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDespesas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Despesas
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownDespesas">
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=bens&t=pagto_a_vista">Pagamento à vista</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=credito&t=pagto_com_cartao">Pagamento com cartão de crédito</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=despesas&cr=tudo&t=outra_despesa">Outra despesa</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=despesas&t=reemb_a_vista">Reembolso à vista</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=despesas&t=reemb_no_cartao">Reembolso no cartão</a>
+                        </div>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="nova_senha.php">Mudar senha</a>
                     </li>

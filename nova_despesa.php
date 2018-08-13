@@ -15,7 +15,7 @@ $id = $_GET['id'] ?? -1;
         
         <tr>
             <td>
-                <label for="cr">De (conta)</label>
+                <label for="cr">De</label>
             </td>
             <td>
                 <select name="cr" id="cr" class="form-control" autofocus>
@@ -27,7 +27,7 @@ $id = $_GET['id'] ?? -1;
         
         <tr>
             <td>
-                <label for="dr">Para (conta)</label>
+                <label for="dr">Para</label>
             </td>
             <td>
                 <?= conta_nome($dbh, $_SESSION['uid'], $id) ?>

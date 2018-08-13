@@ -46,7 +46,7 @@ $trs_rows = fetch_all_conta_transactions($dbh, $_SESSION['uid'], $conta_id);
 ?>
     <h3>Saldo: <?= balance($conta_id, $conta_sinal, $trs_rows) ?> <a href="ajuste.php?id=<?= $conta_id ?>">(ajustar)</a></h3>
     
-    <table>
+    <table class="table-sm">
         
         <?php
         
