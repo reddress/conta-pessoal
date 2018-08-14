@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     $query_row = $query_sql->fetch();
 
     $conta_nome = $query_row['nome'];
-    $conta_sinal = $query_row['sinal'];
+    $conta_sinal = (int) $query_row['sinal'];
 ?>
 
 <?php
@@ -58,17 +58,17 @@ $trs_rows = fetch_all_conta_transactions($dbh, $_SESSION['uid'], $conta_id);
                 <?php
                     if ($row['dr_nome'] == $conta_nome) {
                 ?>
-                    <td class="text-right"><?= red_black($row['valor']) ?></td>
+                    <td class="text-right"><?= red_black($conta_sinal * $row['valor']) ?></td>
                     <td><a href="conta.php?id=<?= $row['cr'] ?>"><?= $row['cr_nome'] ?></a></td>
                 <?php
                     } else {
                 ?>
-                    <td class="text-right"><?= red_black(-$row['valor']) ?></td>
+                    <td class="text-right"><?= red_black(-$conta_sinal * $row['valor']) ?></td>
                     <td><a href="conta.php?id=<?= $row['dr'] ?>"><?= $row['dr_nome'] ?></a></td>
                 <?php
                     }
                 ?>
-                <td><a href="editar_transacao.php?id=<?= $row['id'] ?>&redir=<?= urlencode("conta.php?id=" . $conta_id) ?>">editar/excluir</a></td>
+                <td><a href="editar_transacao.php?id=<?= $row['id'] ?>&redir=<?= urlencode("conta.php?id=" . $conta_id) ?>">(editar)</a></td>
             </tr>
             
         <?php

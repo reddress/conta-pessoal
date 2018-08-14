@@ -14,7 +14,7 @@ try {
     $tr_nome = $existe_row['nome'];
 ?>
 
-    <h1>Realmente excluir transação <?= $tr_nome ?></h1>
+    <h1>Confirmar excluir transação <?= $tr_nome ?>?</h1>
 
     <form action="excluir_transacao.php" method="POST">
         <input name="tr_id" value="<?= $tr_id ?>" type="hidden">

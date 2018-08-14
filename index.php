@@ -52,6 +52,8 @@ require("formatters.php");
     <a class="btn btn-primary" href="nova_transacao.php?dr=bens&cr=receitas&t=receitas">Receita</a><br><br>
 
     <a class="btn btn-primary" href="tipo_de_conta.php?t=bens">Bens</a><br><br>
+
+    <a class="btn btn-primary" href="tipo_de_conta.php?t=credito">Cartões</a><br><br>
 <?php
 }
 ?>

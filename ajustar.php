@@ -7,6 +7,7 @@ require('transacoes_util.php');
 
 $conta_id = $_POST['id'];
 $valor = $_POST['valor'];
+$motivo = $_POST['motivo'];
 
 // get current balance
 $conta_trs = fetch_all_conta_transactions($dbh, $_SESSION['uid'], $conta_id);
@@ -31,10 +32,12 @@ $ajustes_id_sql->execute([":uid" => $_SESSION['uid']]);
 $ajustes_id_row = $ajustes_id_sql->fetch();
 $ajustes_id = $ajustes_id_row['id'];        
 
+$ajuste_motivo = "[Ajuste] " . $motivo;
+
 if ($conta_sinal == 1) {
-    insert_transacao($dbh, $_SESSION['uid'], date("Y-m-d"), "Ajuste automático", $conta_sinal * $adj_valor, $conta_id, $ajustes_id);
+    insert_transacao($dbh, $_SESSION['uid'], date("Y-m-d"), $ajuste_motivo, $conta_sinal * $adj_valor, $conta_id, $ajustes_id);
 } else {
-    insert_transacao($dbh, $_SESSION['uid'], date("Y-m-d"), "Ajuste automático", -1 * $conta_sinal * $adj_valor, $ajustes_id, $conta_id);
+    insert_transacao($dbh, $_SESSION['uid'], date("Y-m-d"), $ajuste_motivo, -1 * $conta_sinal * $adj_valor, $ajustes_id, $conta_id);
 }
 ?>
 

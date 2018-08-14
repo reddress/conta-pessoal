@@ -26,6 +26,15 @@ $conta_id = $_GET['id'];
 
         <tr>
             <td>
+                <label for="motivo">Motivo de ajuste</label>
+            </td>
+            <td>
+                <input name="motivo" id="motivo">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
                 &nbsp;
             </td>
             <td>

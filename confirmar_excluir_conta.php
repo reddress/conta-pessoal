@@ -13,7 +13,7 @@ try {
     $conta_nome = $existe_row['nome'];
 ?>
 
-    <h1>Realmente excluir conta <?= $conta_nome ?></h1>
+    <h1>Confirmar excluir conta <?= $conta_nome ?>?</h1>
 
     <form action="excluir_conta.php" method="POST">
         <input name="conta_id" value="<?= $conta_id ?>" type="hidden">

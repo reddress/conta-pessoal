@@ -65,6 +65,8 @@ try {
 
 <h3><a href="<?= urldecode($redirect) ?>">Voltar a <?= $redirect_nome ?></a></h3>
 
+<h3><a href="index.php">Voltar a homepage</a></h3>
+
     <?php
     } else {
         echo($errors);
