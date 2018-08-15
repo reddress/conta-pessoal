@@ -35,11 +35,19 @@ ob_start();  // needed for header('Location: ...') to work
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="tipo_de_conta.php?t=bens">Bens</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="tipo_de_conta.php?t=despesas">Nova despesa</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="nova_transacao.php?dr=bens&cr=receitas&t=receitas">Nova receita</a>
+                        <a class="nav-link" href="tipo_de_conta.php?t=receitas">Nova receita</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tipo_de_conta.php?t=credito">Novo pagto. de cartão</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -57,17 +65,6 @@ ob_start();  // needed for header('Location: ...') to work
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCartoes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Cartões
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownCartoes">
-                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=bens&t=pagamento_fatura">Pagamento de fatura</a>
-                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=credito&t=emprestimo_do_cartao">Empréstimo do cartão</a>
-                        </div>
-                    </li>
-
-
-                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTransferencias" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Transferências
                         </a>
@@ -75,6 +72,16 @@ ob_start();  // needed for header('Location: ...') to work
                             <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=bens&t=tr_bens">Transferência entre bens</a>
                             <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=credito&t=tr_cartoes">Transferência entre cartões</a>
                             <a class="dropdown-item" href="nova_transacao.php?dr=tudo&cr=tudo&t=geral">Nova transação (geral)</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCartoes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Cartões
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownCartoes">
+                            <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=bens&t=pagamento_fatura">Pagamento de fatura</a>
+                            <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=credito&t=emprestimo_do_cartao">Empréstimo do cartão</a>
                         </div>
                     </li>
 

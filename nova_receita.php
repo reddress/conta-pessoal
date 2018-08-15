@@ -8,7 +8,7 @@ $id = $_GET['id'] ?? -1;
 
 ?>
 
-<h1>Nova Despesa</h1>
+<h1>Nova Receita</h1>
     
 <form action="criar_transacao.php" method="POST">
     <table class="table-sm">
@@ -18,13 +18,8 @@ $id = $_GET['id'] ?? -1;
                 <label for="cr">De</label>
             </td>
             <td>
-                <select name="cr" id="cr" class="form-control" autofocus>
-                    <option value="-1">Escolha uma conta</option>
-                    <?= select_bens_credito($dbh, $_SESSION['uid']) ?>
-                </select>
-            </td>
-            <td>
-                <a href="nova_conta.php?redir=<?= urlencode("nova_despesa.php?id=$id") ?>" tabindex="101">(nova)</a>
+                <?= conta_nome($dbh, $_SESSION['uid'], $id) ?>
+                <input name="cr" value="<?= $id ?>" type="hidden">
             </td>
         </tr>
         
@@ -33,9 +28,15 @@ $id = $_GET['id'] ?? -1;
                 <label for="dr">Para</label>
             </td>
             <td>
-                <?= conta_nome($dbh, $_SESSION['uid'], $id) ?>
-                <input name="dr" value="<?= $id ?>" type="hidden">
+                <select name="dr" id="dr" class="form-control" autofocus>
+                    <option value="-1">Escolha uma conta</option>
+                    <?= select_bens($dbh, $_SESSION['uid']) ?>
+                </select>
             </td>
+            <td>
+                <a href="nova_conta.php?t=bens&redir=<?= urlencode("nova_receita.php?id=$id&redirect_nome=nova_transacao") ?>" tabindex="101">(nova)</a>
+            </td>
+
         </tr>
         
         <tr>

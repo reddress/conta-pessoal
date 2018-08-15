@@ -53,6 +53,30 @@ function select_bens_credito($dbh, $uid) {
     return $options;
 }
 
+function select_receitas($dbh, $uid) {
+    $select_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = 'receitas' order by nome");
+    $select_sql->execute([":uid" => $uid]);
+
+    $options = "";
+    foreach ($select_sql as $row) {
+        $options .= "<option value=\"{$row['id']}\">{$row['nome']}</option>\n";
+    }
+    
+    return $options;
+}
+
+function select_bens($dbh, $uid) {
+    $select_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = 'bens' order by nome");
+    $select_sql->execute([":uid" => $uid]);
+
+    $options = "";
+    foreach ($select_sql as $row) {
+        $options .= "<option value=\"{$row['id']}\">{$row['nome']}</option>\n";
+    }
+    
+    return $options;
+}
+
 
 function select_contas_with_selected($dbh, $uid, $tipo, $selected_id) {
     // copy of select_contas

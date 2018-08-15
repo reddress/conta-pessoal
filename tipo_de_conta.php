@@ -13,27 +13,40 @@ if (isset($_GET['t'])) {
 
     <h3><a href="nova_conta.php?t=<?= $tipo ?>">Nova conta</a></h3>
 
-        <table class="table-sm">
-            <?php
-            $query_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = :tipo order by nome");
-            $query_sql->execute([":uid" => $_SESSION['uid'], ":tipo" => $tipo]);
+    <table class="table-sm">
+        <?php
+        $query_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = :tipo order by nome");
+        $query_sql->execute([":uid" => $_SESSION['uid'], ":tipo" => $tipo]);
 
-            foreach($query_sql as $row) {
-            ?>
-                <tr>
-                    <td><a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a></td>
-                    <td><?= red_black(balance_all_time($dbh, $_SESSION['uid'], $row['id'])) ?></td>
+        foreach($query_sql as $row) {
+        ?>
+            <tr>
+                <td><a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a></td>
+                <td><?= red_black(balance_all_time($dbh, $_SESSION['uid'], $row['id'])) ?></td>
+                
+                <?php
+                    if ($tipo == "despesas") {
+                ?>
+
+                    <td><a class="btn btn-primary" href="nova_despesa.php?id=<?= $row['id'] ?>">+</a></td>
+                    
+                <?php
+    } else if ($tipo == "receitas") {
+                    
+    ?>
+                        
+                    <td><a class="btn btn-primary" href="nova_receita.php?id=<?= $row['id'] ?>">+</a></td>
+
+                <?php
+                } else if ($tipo == "credito") {
+                ?>
+                    
+                    <td><a class="btn btn-primary" href="novo_pagto_cartao.php?id=<?= $row['id'] ?>">+</a></td>
                     
                     <?php
-                        if ($tipo == "despesas") {
+                            }
                     ?>
-
-                        <td><a class="btn btn-primary" href="nova_despesa.php?id=<?= $row['id'] ?>">+</a></td>
-                        
-                    <?php
-    }
-    ?>
-    </tr>
+            </tr>
 
 <?php
 }
