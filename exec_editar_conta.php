@@ -22,9 +22,16 @@ try {
     if (trim($nome) == "") {
         exit('Nome não deve estar em branco. <a href="javascript: history.back()">Tente novamente.</a>');
     }
+
+    if ($tipo == "bens" || $tipo == "despesas") {
+        $sinal = 1;
+    } else {
+        $sinal = -1;
+    }
     
-    $update_sql = $dbh->prepare("update contas set tipo = :tipo, nome = :nome, orcamento = :orcamento where dono = :uid and id = :conta_id");
+    $update_sql = $dbh->prepare("update contas set tipo = :tipo, sinal = :sinal, nome = :nome, orcamento = :orcamento where dono = :uid and id = :conta_id");
     $update_sql->execute([":tipo" => $tipo,
+                          ":sinal" => $sinal,
                           ":nome" => $nome,
                           ":orcamento"=> $orcamento,
                           ":uid" => $_SESSION['uid'],

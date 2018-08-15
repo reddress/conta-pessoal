@@ -83,7 +83,6 @@ $trs_rows = fetch_all_conta_transactions($dbh, $_SESSION['uid'], $conta_id);
     
     <h1>Contas</h1>
 
-    LIST EVERY CONTA WITH SALDO OR MONTHLY TOTAL
     <br><br>
     
     <a href="tipo_de_conta.php?t=bens">Bens</a>

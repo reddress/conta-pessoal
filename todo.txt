@@ -1,18 +1,14 @@
-[  ] exec_editar_conta.php: sinal should be computed by tipo
-[  ] editar_conta.php: auto-select existing tipo
-[  ] busca.php, conta.php: table header
-[  ] busca.php: paginate results or limit to one year
 [  ] contas_util.php: date range in transactions(dbh, uid, from, to)
      
 [  ] conta.php: dates "from" and "to"
-[  ] tipo_de_conta.php: select all transactions,
-       then sum for "all time" and "this month"
-[  ] Paginate transactions list
+[  ] tipo_de_conta.php: select all transactions, then sum for
+       "all time" and "this month"
 [  ] transaction list ?start=N skips N transactions (simple pagination)
        number per page is a global variable
+[  ] busca.php, conta.php: table header
+[  ] busca.php: paginate results or limit to one year
 
 [ok] contas_util.php: balance(dbh, uid, conta, transactions)
-
 [ok] auto login after creating account
 [ok] check cookies
 [ok] take sql and execute in criar_transacao into a function
@@ -26,3 +22,5 @@
        Outros ajustes
        Contas apagadas
 [ok] conta balances should have a link to new transaction
+[ok] exec_editar_conta.php: sinal should be computed by tipo
+[ok] editar_conta.php: auto-select existing tipo

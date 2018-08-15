@@ -4,18 +4,13 @@ include('header.php');
 include('constants.php');
 include('dbhost.php');
 
-if (isset($_GET['t'])) {
-    $tipo = $_GET['t'];
-} else {
-    $tipo = "";
-}
-
-$query_sql = $dbh->prepare("select nome from contas where dono = :uid and id = :id");
+$query_sql = $dbh->prepare("select nome, tipo from contas where dono = :uid and id = :id");
 $query_sql->execute([":uid" => $_SESSION['uid'],
                      ":id" => $_GET['id']]);
 $conta_nome_row = $query_sql->fetch();
 
 $nome_atual = $conta_nome_row['nome'];
+$tipo_atual = $conta_nome_row['tipo'];
 
 ?>
 
@@ -33,7 +28,7 @@ $nome_atual = $conta_nome_row['nome'];
                 <?php
                     foreach ($TIPOS as $t) {
                 ?>
-                    <option value="<?= $t ?>" <?php if ($t == $tipo) { ?>selected<?php } ?>><?= $t ?></option>
+                    <option value="<?= $t ?>" <?php if ($t == $tipo_atual) { ?>selected<?php } ?>><?= $t ?></option>
                 <?php
                 }
                 ?>
@@ -47,36 +42,6 @@ $nome_atual = $conta_nome_row['nome'];
                 <input name="nome" id="nome" autofocus>
             </td>
         </tr>
-
-        <?php
-        if ($tipo == "despesas") {
-        ?>
-            
-        <tr>
-            <td>
-                <label for="orcamento">Orçamento</label>
-            </td>
-            <td>
-                <input name="orcamento" id="orcamento" type="number" step="0.01">
-            </td>
-        </tr>
-
-        <?php
-        } else if ($tipo == "credito") {
-        ?>
-        
-        <tr>
-            <td>
-                <label for="orcamento">Limite</label>
-            </td>
-            <td>
-                <input name="orcamento" id="orcamento" type="number" step="0.01">
-            </td>
-        </tr>
-
-        <?php
-        }
-        ?>
 
         <tr>
             <td>
