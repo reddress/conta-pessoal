@@ -43,6 +43,36 @@ $tipo_atual = $conta_nome_row['tipo'];
             </td>
         </tr>
 
+        <?php
+        if ($tipo == "despesas") {
+        ?>
+            
+        <tr>
+            <td>
+                <label for="orcamento">Orçamento</label>
+            </td>
+            <td>
+                <input name="orcamento" id="orcamento" type="number" step="0.01">
+            </td>
+        </tr>
+
+        <?php
+        } else if ($tipo == "credito") {
+        ?>
+        
+        <tr>
+            <td>
+                <label for="orcamento">Limite</label>
+            </td>
+            <td>
+                <input name="orcamento" id="orcamento" type="number" step="0.01">
+            </td>
+        </tr>
+
+        <?php
+        }
+        ?>
+        
         <tr>
             <td>
                 &nbsp;
