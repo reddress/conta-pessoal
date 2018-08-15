@@ -39,7 +39,7 @@ $tipo_atual = $conta_nome_row['tipo'];
                 <label for="nome">Novo nome</label>
             </td>
             <td>
-                <input name="nome" id="nome" autofocus>
+                <input name="nome" id="nome" value="<?= $nome_atual ?>" autofocus>
             </td>
         </tr>
 
