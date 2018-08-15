@@ -80,6 +80,8 @@ try {
 <h3>Transação <?= $nome ?> criada.</h3>
 
 <h3><a href="tipo_de_conta.php?t=despesas">Nova despesa</a></h3>
+<h3><a href="tipo_de_conta.php?t=receitas">Nova receita</a></h3>
+<h3><a href="tipo_de_conta.php?t=credito">Novo pagamento de cartão</a></h3>
 
 <h3><a href="<?= $redirect ?>.php?dr=<?= $form_dr ?>&cr=<?= $form_cr ?>&t=<?= $form_t ?>" id="nova_transacao">Nova transação <?= $TR_NOMES[$form_t] ?></a></h3>
 
