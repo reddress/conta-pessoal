@@ -44,7 +44,7 @@ $tipo_atual = $conta_nome_row['tipo'];
         </tr>
 
         <?php
-        if ($tipo == "despesas") {
+        if ($tipo_atual == "despesas") {
         ?>
             
         <tr>
@@ -57,7 +57,7 @@ $tipo_atual = $conta_nome_row['tipo'];
         </tr>
 
         <?php
-        } else if ($tipo == "credito") {
+        } else if ($tipo_atual == "credito") {
         ?>
         
         <tr>
