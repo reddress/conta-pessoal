@@ -44,7 +44,7 @@ order by data desc, id desc");
                 <td class="text-right"><?= $row['valor'] ?></td>
                 <td><a href="conta.php?id=<?= $row['cr'] ?>"><?= $row['cr_nome'] ?></a></td>
                 <td><a href="conta.php?id=<?= $row['dr'] ?>"><?= $row['dr_nome'] ?></a></td>
-                <td><a href="editar_transacao.php?id=<?= $row['id'] ?>&redir=<?= urlencode("conta.php?id=" . $conta_id) ?>">editar/excluir</a></td>
+                <td><a href="editar_transacao.php?id=<?= $row['id'] ?>&redir=<?= urlencode("conta.php?id=" . $conta_id) ?>">(editar)</a></td>
             </tr>
             
 <?php

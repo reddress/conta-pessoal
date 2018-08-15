@@ -9,7 +9,7 @@ ob_start();  // needed for header('Location: ...') to work
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Cabra</title>
+        <title>Contabilidade Pessoal</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/picka/default.css">
         <link rel="stylesheet" href="css/picka/default.date.css">
@@ -21,11 +21,7 @@ ob_start();  // needed for header('Location: ...') to work
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <form action="busca.php" method="GET" class="form-inline my-2 my-lg-0">
-                <input name="q" class="form-control mr-sm-2" type="search" placeholder="Busca" aria-label="Busca">
-            </form>
-
-            <a class="navbar-brand" href="index.php">Cabra</a>
+            <a class="navbar-brand" href="index.php">ContaPessoal</a>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -34,6 +30,12 @@ ob_start();  // needed for header('Location: ...') to work
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
 
+                    <li class="nav-item active">
+                        <form action="busca.php" method="GET" class="form-inline my-2 my-lg-0">
+                            <input name="q" class="form-control input-sm" type="search" placeholder="Busca" aria-label="Busca">
+                        </form>
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="tipo_de_conta.php?t=bens">Bens</a>
                     </li>
