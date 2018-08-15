@@ -114,7 +114,7 @@ function fetch_all_conta_transactions($dbh, $uid, $conta_id) {
     $trs_sql = $dbh->prepare(
         "select
 t.id as id,
-date_format(t.data, '%d/%m/%Y') as data,
+date_format(t.data, '%d/%m') as data,
 t.nome as nome,
 valor,
 cr,

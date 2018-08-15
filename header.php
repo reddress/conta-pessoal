@@ -105,6 +105,10 @@ ob_start();  // needed for header('Location: ...') to work
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="ultimas_tr.php">Últimas transações</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="nova_senha.php">Mudar senha</a>
                     </li>
 
