@@ -77,6 +77,7 @@ ob_start();  // needed for header('Location: ...') to work
                         </div>
                     </li>
 
+                    <!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCartoes" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Cartões
@@ -86,11 +87,13 @@ ob_start();  // needed for header('Location: ...') to work
                             <a class="dropdown-item" href="nova_transacao.php?dr=bens&cr=credito&t=emprestimo_do_cartao">Empréstimo do cartão</a>
                         </div>
                     </li>
-
+                    -->
+                    
                     <?php
                     if (isset($_SESSION['uid'])) {
                     ?>
-                        
+
+                    <!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDespesas" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Despesas
@@ -103,7 +106,8 @@ ob_start();  // needed for header('Location: ...') to work
                             <a class="dropdown-item" href="nova_transacao.php?dr=credito&cr=despesas&t=reemb_no_cartao">Reembolso no cartão</a>
                         </div>
                     </li>
-
+                    -->
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="ultimas_tr.php">Últimas transações</a>
                     </li>

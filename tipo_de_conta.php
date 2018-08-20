@@ -13,16 +13,37 @@ if (isset($_GET['t'])) {
 
     <h3><a href="nova_conta.php?t=<?= $tipo ?>">Nova conta</a></h3>
 
+    <?php
+    if ($tipo == "despesas" || $tipo == "receitas") {
+        // display date endpoints
+        $endpts = period_endpts(date('Y-m-d'));
+        
+        $left_date = $endpts[0];
+        $right_date = $endpts[1];
+
+        echo "Período de $left_date a $right_date<br>";
+    }
+    ?>
+    
     <table class="table-sm">
         <?php
         $query_sql = $dbh->prepare("select id, nome from contas where dono = :uid and tipo = :tipo order by nome");
         $query_sql->execute([":uid" => $_SESSION['uid'], ":tipo" => $tipo]);
 
+        $total = 0;
+        
         foreach($query_sql as $row) {
+            // monthly balance if despesas or receitas, else all-time
+            if ($tipo == "despesas" || $tipo == "receitas") {
+                $row_bal = balance_monthly($dbh, $_SESSION['uid'], $row['id']);
+            } else {
+                $row_bal = balance_all_time($dbh, $_SESSION['uid'], $row['id']);
+            }
+            $total += $row_bal;
         ?>
             <tr>
                 <td><a href="conta.php?id=<?= $row['id'] ?>"><?= $row['nome'] ?></a></td>
-                <td><?= red_black(balance_all_time($dbh, $_SESSION['uid'], $row['id'])) ?></td>
+                <td style="text-align: right;"><?= red_black($row_bal) ?></td>
                 
                 <?php
                     if ($tipo == "despesas") {
@@ -51,6 +72,10 @@ if (isset($_GET['t'])) {
 <?php
 }
 ?>
+<tr>
+    <td>Total</td>
+    <td style="text-align: right; font-weight: bold;"><?= red_black($total) ?></td>
+</tr>
     </table>
 
 <?php

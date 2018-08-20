@@ -1,5 +1,6 @@
 <?php
 require("dbhost.php");
+require("date_util.php");
 
 function insert_conta($dbh, $uid, $tipo, $sinal, $nome, $orcamento) {
     $insert_sql = $dbh->prepare("insert into contas (dono, tipo, sinal, nome, orcamento) values (:uid, :tipo, :sinal, :nome, :orcamento)");
@@ -114,6 +115,7 @@ function fetch_all_conta_transactions($dbh, $uid, $conta_id) {
     $trs_sql = $dbh->prepare(
         "select
 t.id as id,
+t.data as data_raw,
 date_format(t.data, '%d/%m') as data,
 t.nome as nome,
 valor,
@@ -126,7 +128,7 @@ inner join contas c on c.id = t.cr
 inner join contas d on d.id = t.dr
 where t.dono = :uid and
 (dr = :dr_id or cr = :cr_id)
-order by data desc, id desc");
+order by data_raw desc, id desc");
     $trs_sql->execute([":uid" => $uid,
                        ":cr_id" => $conta_id,
                        ":dr_id" => $conta_id]);
@@ -156,4 +158,43 @@ group by c.id, c.sinal");
 
     return $debits_total - $credits_total;
 }
+
+
+function balance_monthly($dbh, $uid, $conta_id) {
+    $endpts = period_endpts(date('Y-m-d'));
+    
+    $left_date = $endpts[0];
+    $right_date = $endpts[1];
+    
+    $debits_sql = $dbh->prepare("select
+sum(t.valor) * c.sinal as total from contas c
+inner join transacoes t on c.id = t.dr
+where t.dono = :uid and c.id = :conta_id
+and t.data >= :left_endpt
+and t.data <= :right_endpt
+group by c.id, c.sinal");
+    $debits_sql->execute([":uid" => $uid,
+                          ":left_endpt" => $left_date,
+                          ":right_endpt" => $right_date,
+                          ":conta_id" => $conta_id]);
+    $debits_row = $debits_sql->fetch();
+    $debits_total = (float) $debits_row['total'];
+    
+    $credits_sql = $dbh->prepare("select
+sum(t.valor) * c.sinal as total from contas c
+inner join transacoes t on c.id = t.cr
+where t.dono = :uid and c.id = :conta_id
+and t.data >= :left_endpt
+and t.data <= :right_endpt
+group by c.id, c.sinal");
+    $credits_sql->execute([":uid" => $uid,
+                           ":left_endpt" => $left_date,
+                           ":right_endpt" => $right_date,
+                           ":conta_id" => $conta_id]);
+    $credits_row = $credits_sql->fetch();
+    $credits_total = (float) $credits_row['total'];
+
+    return $debits_total - $credits_total;
+}
+
 ?>
